@@ -1,0 +1,50 @@
+[
+    {
+        "nama": "obat_1",
+        "kelas": 2,
+        "jumlah": 10,
+        "harga": 1000
+    },
+    {
+        "nama": "obat_2",
+        "kelas": 3,
+        "jumlah": 20,
+        "harga": 2000
+    },
+    {
+        "nama": "obat_3",
+        "kelas": 4,
+        "jumlah": 30,
+        "harga": 3000
+    },
+    {
+        "nama": "obat_4",
+        "kelas": 5,
+        "jumlah": 40,
+        "harga": 4000
+    },
+    {
+        "nama": "obat_5",
+        "kelas": 6,
+        "jumlah": 50,
+        "harga": 5000
+    },
+    {
+        "nama": "obat_6",
+        "kelas": 7,
+        "jumlah": 60,
+        "harga": 6000
+    },
+    {
+        "nama": "obat_7",
+        "kelas": 8,
+        "jumlah": 70,
+        "harga": 7000
+    },
+    {
+        "nama": "obat_8",
+        "kelas": 9,
+        "jumlah": 80,
+        "harga": 8000
+    }
+]

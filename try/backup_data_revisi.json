@@ -1,0 +1,362 @@
+[
+    {
+        "no": "1",
+        "batch": "001",
+        "speed": "101",
+        "Tanggal": "2024-09-20",
+        "thickness": "2.51",
+        "diameter": "5.62",
+        "hardness": "81"
+    },
+    {
+        "no": "2",
+        "batch": "002",
+        "speed": "102",
+        "Tanggal": "2024-09-20",
+        "thickness": "2.52",
+        "diameter": "5.64",
+        "hardness": "82"
+    },
+    {
+        "no": "3",
+        "batch": "003",
+        "speed": "103",
+        "Tanggal": "2024-09-20",
+        "thickness": "2.53",
+        "diameter": "5.66",
+        "hardness": "83"
+    },
+    {
+        "no": "4",
+        "batch": "004",
+        "speed": "104",
+        "Tanggal": "2024-09-20",
+        "thickness": "2.54",
+        "diameter": "5.68",
+        "hardness": "84"
+    },
+    {
+        "no": "5",
+        "batch": "005",
+        "speed": "105",
+        "Tanggal": "2024-09-20",
+        "thickness": "2.55",
+        "diameter": "5.70",
+        "hardness": "85"
+    },
+    {
+        "no": "6",
+        "batch": "006",
+        "speed": "106",
+        "Tanggal": "2024-09-20",
+        "thickness": "2.56",
+        "diameter": "5.72",
+        "hardness": "86"
+    },
+    {
+        "no": "7",
+        "batch": "007",
+        "speed": "107",
+        "Tanggal": "2024-09-20",
+        "thickness": "2.57",
+        "diameter": "5.74",
+        "hardness": "87"
+    },
+    {
+        "no": "8",
+        "batch": "008",
+        "speed": "108",
+        "Tanggal": "2024-09-20",
+        "thickness": "2.58",
+        "diameter": "5.76",
+        "hardness": "88"
+    },
+    {
+        "no": "9",
+        "batch": "009",
+        "speed": "109",
+        "Tanggal": "2024-09-20",
+        "thickness": "2.59",
+        "diameter": "5.78",
+        "hardness": "89"
+    },
+    {
+        "no": "10",
+        "batch": "010",
+        "speed": "110",
+        "Tanggal": "2024-09-20",
+        "thickness": "2.60",
+        "diameter": "5.80",
+        "hardness": "90"
+    },
+    {
+        "no": "11",
+        "batch": "011",
+        "speed": "111",
+        "Tanggal": "2024-09-20",
+        "thickness": "2.61",
+        "diameter": "5.82",
+        "hardness": "91"
+    },
+    {
+        "no": "12",
+        "batch": "012",
+        "speed": "112",
+        "Tanggal": "2024-09-20",
+        "thickness": "2.62",
+        "diameter": "5.84",
+        "hardness": "92"
+    },
+    {
+        "no": "13",
+        "batch": "013",
+        "speed": "113",
+        "Tanggal": "2024-09-20",
+        "thickness": "2.63",
+        "diameter": "5.86",
+        "hardness": "93"
+    },
+    {
+        "no": "14",
+        "batch": "014",
+        "speed": "114",
+        "Tanggal": "2024-09-20",
+        "thickness": "2.64",
+        "diameter": "5.88",
+        "hardness": "94"
+    },
+    {
+        "no": "15",
+        "batch": "015",
+        "speed": "115",
+        "Tanggal": "2024-09-20",
+        "thickness": "2.65",
+        "diameter": "5.90",
+        "hardness": "95"
+    },
+    {
+        "no": "16",
+        "batch": "016",
+        "speed": "116",
+        "Tanggal": "2024-09-20",
+        "thickness": "2.66",
+        "diameter": "5.92",
+        "hardness": "96"
+    },
+    {
+        "no": "17",
+        "batch": "017",
+        "speed": "117",
+        "Tanggal": "2024-09-20",
+        "thickness": "2.67",
+        "diameter": "5.94",
+        "hardness": "97"
+    },
+    {
+        "no": "18",
+        "batch": "018",
+        "speed": "118",
+        "Tanggal": "2024-09-20",
+        "thickness": "2.68",
+        "diameter": "5.96",
+        "hardness": "98"
+    },
+    {
+        "no": "19",
+        "batch": "019",
+        "speed": "119",
+        "Tanggal": "2024-09-20",
+        "thickness": "2.69",
+        "diameter": "5.98",
+        "hardness": "99"
+    },
+    {
+        "no": "20",
+        "batch": "020",
+        "speed": "120",
+        "Tanggal": "2024-09-20",
+        "thickness": "2.70",
+        "diameter": "6.00",
+        "hardness": "100"
+    },
+    {
+        "no": "1",
+        "batch": "001",
+        "speed": "101",
+        "Tanggal": "2024-09-20",
+        "thickness": "2.51",
+        "diameter": "5.62",
+        "hardness": "81"
+    },
+    {
+        "no": "2",
+        "batch": "002",
+        "speed": "102",
+        "Tanggal": "2024-09-20",
+        "thickness": "2.52",
+        "diameter": "5.64",
+        "hardness": "82"
+    },
+    {
+        "no": "3",
+        "batch": "003",
+        "speed": "103",
+        "Tanggal": "2024-09-20",
+        "thickness": "2.53",
+        "diameter": "5.66",
+        "hardness": "83"
+    },
+    {
+        "no": "4",
+        "batch": "004",
+        "speed": "104",
+        "Tanggal": "2024-09-20",
+        "thickness": "2.54",
+        "diameter": "5.68",
+        "hardness": "84"
+    },
+    {
+        "no": "5",
+        "batch": "005",
+        "speed": "105",
+        "Tanggal": "2024-09-20",
+        "thickness": "2.55",
+        "diameter": "5.70",
+        "hardness": "85"
+    },
+    {
+        "no": "6",
+        "batch": "006",
+        "speed": "106",
+        "Tanggal": "2024-09-20",
+        "thickness": "2.56",
+        "diameter": "5.72",
+        "hardness": "86"
+    },
+    {
+        "no": "7",
+        "batch": "007",
+        "speed": "107",
+        "Tanggal": "2024-09-20",
+        "thickness": "2.57",
+        "diameter": "5.74",
+        "hardness": "87"
+    },
+    {
+        "no": "8",
+        "batch": "008",
+        "speed": "108",
+        "Tanggal": "2024-09-20",
+        "thickness": "2.58",
+        "diameter": "5.76",
+        "hardness": "88"
+    },
+    {
+        "no": "9",
+        "batch": "009",
+        "speed": "109",
+        "Tanggal": "2024-09-20",
+        "thickness": "2.59",
+        "diameter": "5.78",
+        "hardness": "89"
+    },
+    {
+        "no": "10",
+        "batch": "010",
+        "speed": "110",
+        "Tanggal": "2024-09-20",
+        "thickness": "2.60",
+        "diameter": "5.80",
+        "hardness": "90"
+    },
+    {
+        "no": "11",
+        "batch": "011",
+        "speed": "111",
+        "Tanggal": "2024-09-20",
+        "thickness": "2.61",
+        "diameter": "5.82",
+        "hardness": "91"
+    },
+    {
+        "no": "12",
+        "batch": "012",
+        "speed": "112",
+        "Tanggal": "2024-09-20",
+        "thickness": "2.62",
+        "diameter": "5.84",
+        "hardness": "92"
+    },
+    {
+        "no": "13",
+        "batch": "013",
+        "speed": "113",
+        "Tanggal": "2024-09-20",
+        "thickness": "2.63",
+        "diameter": "5.86",
+        "hardness": "93"
+    },
+    {
+        "no": "14",
+        "batch": "014",
+        "speed": "114",
+        "Tanggal": "2024-09-20",
+        "thickness": "2.64",
+        "diameter": "5.88",
+        "hardness": "94"
+    },
+    {
+        "no": "15",
+        "batch": "015",
+        "speed": "115",
+        "Tanggal": "2024-09-20",
+        "thickness": "2.65",
+        "diameter": "5.90",
+        "hardness": "95"
+    },
+    {
+        "no": "16",
+        "batch": "016",
+        "speed": "116",
+        "Tanggal": "2024-09-20",
+        "thickness": "2.66",
+        "diameter": "5.92",
+        "hardness": "96"
+    },
+    {
+        "no": "17",
+        "batch": "017",
+        "speed": "117",
+        "Tanggal": "2024-09-20",
+        "thickness": "2.67",
+        "diameter": "5.94",
+        "hardness": "97"
+    },
+    {
+        "no": "18",
+        "batch": "018",
+        "speed": "118",
+        "Tanggal": "2024-09-20",
+        "thickness": "2.68",
+        "diameter": "5.96",
+        "hardness": "98"
+    },
+    {
+        "no": "19",
+        "batch": "019",
+        "speed": "119",
+        "Tanggal": "2024-09-20",
+        "thickness": "2.69",
+        "diameter": "5.98",
+        "hardness": "99"
+    },
+    {
+        "no": "20",
+        "batch": "020",
+        "speed": "120",
+        "Tanggal": "2024-09-20",
+        "thickness": "2.70",
+        "diameter": "6.00",
+        "hardness": "100"
+    }
+]

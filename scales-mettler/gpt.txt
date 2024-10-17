@@ -1,0 +1,210 @@
+saya memiliki tugas untuk membuat program python dari timbangan mettler toledo, data yang diterima oleh python akan di proses melalui raspberry.
+
+dengan table sebagai berikut 
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    operator = Column(String)
+    x = Column(Float)
+    s_dev = Column(String)
+    s_rel = Column(String)
+    min_value = Column(Float)
+    max_value = Column(Float)
+    diff = Column(Float)
+    sum_value = Column(Float)
+    date = Column(String)
+
+data serial print yang saya dapatkan dari timbangan mettler sebagai berikut ini :
+------ Statistics ------
+n                 1
+x           0.65420 g
+s dev           --------
+s rel           --------
+Min.         0.6542 g
+Max.         0.6542 g
+Diff.        0.0000 g
+Sum          0.6542 g
+------------------------
+08.10.2024 11:26
+User name            MAY
+------------------------
+Signature
+ 
+========================
+
+dengan penjelasan bahwa 
+operator = User name            MAY
+date = 08.10.2024 11:26
+dan saya ingin seluruh data kecuali s dev dan s rel masuk ke database sesuai dengan value serial read. namun untuk s rel dan s dev jika tidak ada value angka inputnya nilainya 0
+
+program ini akan terus running dengan python untuk menerima serial read sebagai input.
+saya ingin menggunakan sqlalchemy sebagai koneksi ke database
+
+kemudian saya memiliki referensi kode program seperti dibawah ini
+
+import serial
+import time
+import logging
+import re
+import sqlalchemy
+from sqlalchemy import create_engine, Column, Float, Integer, String
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy.ext.declarative import declarative_base
+from datetime import datetime
+
+# Configure logging
+logging.basicConfig(filename='serial_log.txt', level=logging.ERROR, format='%(asctime)s [%(levelname)s] %(message)s')
+
+# Buat kelas model untuk tabel data
+Base = declarative_base()
+
+class MoistureData(Base):
+    __tablename__ = "newmoist"
+    
+    id = Column(Integer, primary_key = True)
+    Operator = Column(String)
+    Batch = Column(String)
+    Limit_atas = Column(String)
+    Limit_bawah = Column(String)
+    Berat_awal = Column(String)
+    Berat_kering = Column(String)
+    Moisture = Column(String)
+    Result = Column(String)
+    Status = Column(String)
+    Date = Column(String)
+    #timestamp = Column(DateTime, default = datetime.utcnow)
+    
+
+def open_serial_port(port, baudrate=9600, timeout=1):
+    """Open a serial port and return the serial object."""
+    while True:
+        try:
+            ser = serial.Serial(port, baudrate=baudrate, timeout=timeout)
+            print(f"Serial port {port} opened successfully.")
+            logging.info(f"Serial port {port} opened successfully.")
+            return ser
+        except serial.SerialException as e:
+            error_message = f"Error opening serial port {port}: {e}"
+            print(error_message)
+            logging.error(error_message)
+            print("Retrying in 5 seconds...")
+            time.sleep(5)
+
+def close_serial_port(ser):
+    """Close the serial port."""
+    try:
+        ser.close()
+        print("Serial port closed.")
+        logging.info("Serial port closed.")
+    except serial.SerialException as e:
+        error_message = f"Error closing serial port: {e}"
+        print(error_message)
+        logging.error(error_message)
+
+def read_and_process_data(ser, encoding='utf-8'):
+    """Read and process data from the serial port."""
+    try:
+        accumulated_data = ""
+        
+        while True:
+            data = ser.readline().decode(encoding, errors='replace').strip()
+            
+            if data:
+                accumulated_data += data + "  "
+                
+                if accumulated_data.endswith('---------  '):
+                    process_data(accumulated_data)
+                    accumulated_data = ""
+        
+    except serial.SerialException as e:
+        error_message = f"Error reading data from serial port: {e}"
+        print(error_message)
+        logging.error(error_message)
+        print("Attempting to reconnect...")
+        ser = open_serial_port(usb_port)  # Reopen the serial port
+        read_and_process_data(ser, encoding)  # Continue reading and processing data with the same encoding
+
+def process_data(data):
+    """Process the received data."""
+    # Add your data processing logic here
+    # For example, you might parse the data and extract relevant information
+    db_url = ""
+    engine = create_engine(db_url, pool_pre_ping=True)
+    Session = sessionmaker(bind=engine)
+    session = Session()
+    
+    Data_split = re.split(r'\s{2,}',data)
+    Data_length = len(Data_split)
+    #print(Data_split)
+    print(Data_length)
+    
+    if Data_length == 69:
+        Datab = MoistureData(Operator = Data_split[9],
+                            Batch = Data_split[46],
+                            Limit_atas = Data_split[35],
+                            Limit_bawah = Data_split[41],
+                            Berat_awal = Data_split[50],
+                            Berat_kering = Data_split[54],
+                            Moisture = Data_split[56],
+                            Result = Data_split[58],
+                            Status = Data_split[60],
+                            Date = Data_split[66])
+        
+        print(Data_split[66])
+        print("data parsing normal")
+        session.add(Datab)
+        session.commit()
+        
+    elif Data_length == 68:
+        Datab = MoistureData(Operator = Data_split[9],
+                        Batch = Data_split[45],
+                        Limit_atas = Data_split[35],
+                        Limit_bawah = Data_split[41],
+                        Berat_awal = Data_split[49],
+                        Berat_kering = Data_split[53],
+                        Moisture = Data_split[55],
+                        Result = Data_split[57],
+                        Status = Data_split[59],
+                        Date = Data_split[65])
+        
+        print(Data_split[65])
+        #print(Data_split)
+        print("data parsing kurang 1")
+        session.add(Datab)
+        session.commit()
+    else:
+        print("Data tidak di parsing")
+    
+    #value =int(Data_split[0])
+    #session = Session()
+    #moisture_data = MoistureData (value=value)
+    #session.add(moisture_data)
+    #session.commit()
+    #session.close()
+
+    # Example: Write data to a file
+    with open("data_log.txt", "a") as file:
+        file.write(f"{time.strftime('%Y-%m-%d %H:%M:%S')}: {data}\n")
+
+def main():
+    # Replace '/dev/ttyUSB0' with the actual USB port
+    usb_port = 'COM3'
+
+    try:
+        # Open the serial port
+        ser = open_serial_port(usb_port)
+
+        try:
+            # Read and process data
+            read_and_process_data(ser, encoding='latin-1')
+            """read_and_process_data(ser)"""
+
+        except KeyboardInterrupt:
+            # Close the serial port on keyboard interrupt
+            close_serial_port(ser)
+
+    except Exception as e:
+        print(f"Exiting program: {e}")
+        logging.exception(f"Exiting program: {e}")
+
+if __name__ == "__main__":
+    
+    main()
