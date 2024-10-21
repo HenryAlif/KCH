@@ -2,12 +2,16 @@ import serial
 import threading
 import re
 import time
+import logging
 import sqlalchemy
 # import RPi.GPIO as GPIO
 from sqlalchemy import create_engine, Column, Float, Integer, String
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 from datetime import datetime
+
+logging.basicConfig(filename='serial_log.txt', level=logging.ERROR, format='%(asctime)s [%(levelname)s] %(message)s')
+logging.basicConfig(filename='info_log.txt', level=logging.INFO, format='%(asctime)s [%(levelname)s] %(message)s')
 
 
 # Initialize global variables
@@ -19,6 +23,7 @@ Arbffr = [[]]
 thickness= ""
 diameter = ""
 hardness= ""
+time_series = ""
 #time_insert = ""
 
 # Get the current date in the desired format
@@ -30,7 +35,7 @@ tanggal_waktu_terformat = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 # GPIO.setup(buzzer_pin, GPIO.OUT)
 
 # Konfigurasi koneksi ke database PostgreSQL
-db_url ="postgresql://users_pims_engineer:Engineer_2023@10.106.1.40/pims_prod"
+db_url ="mysql+mysqlconnector://root@localhost:3306/kalbe"
 #db_url = "mysql+mysqlconnector://ems_saka:s4k4f4rmA@10.126.15.138:3306/pims_prod"
 
 #db_url = "mysql+mysqlconnector://ems_saka:s4k4f4rmA@10.126.15.138:3306/ems_saka"
@@ -42,7 +47,7 @@ Base = declarative_base()
 
 # Define the Data class
 class Data(Base):
-    __tablename__ = 'sakaplant_prod_ipc_staging'
+    __tablename__ = 'hardness'
 
     id_setup = Column(Integer, primary_key=True)
     h_value = Column(Float)
@@ -50,16 +55,17 @@ class Data(Base):
     t_value = Column(Float)
     status = Column(String)
     code_instrument = Column(String)
+    time_series = Column(Integer) 
     #time_insert = Column(String)
 
-
     @classmethod
-    def kirim_data(cls, h_value, d_value, t_value, status, code_instrumentsss):
+    def kirim_data(cls, h_value, d_value, t_value, status, code_instrument, time_series):
         data_baru = cls(h_value=h_value,
                         d_value=d_value,
                         t_value=t_value,
                         status=status,
-                        code_instrument=code_instrument)
+                        code_instrument=code_instrument,
+                        time_series=time_series)
                         #time_insert=time_date
         session.add(data_baru)
         session.commit()
@@ -69,36 +75,29 @@ session = Session()
 
 serial_port = None
 
-# def beep_buzzer(interval):
-#     GPIO.output(buzzer_pin, GPIO.HIGH)
-#     time.sleep(interval)
-#     GPIO.output(buzzer_pin, GPIO.LOW)
-#     time.sleep(interval)
-
-
 def initialize_serial():
     global serial_port, tanggal_waktu_terformat
     while True:
         try:
-            serial_port = serial.Serial(port="/dev/ttyUSB0", baudrate=9600, timeout=1)
+            serial_port = serial.Serial(port="COM3", baudrate=9600, timeout=1)
             serial_port.reset_input_buffer()
             print(f"Serial connection established. {tanggal_waktu_terformat}")
-            print(Arbffr)
-            print(buffer)
-            # GPIO.output(buzzer_pin, GPIO.LOW)
-                
+            logging.info(f"Serial connection established on {serial_port.port} with baudrate {serial_port.baudrate} at {tanggal_waktu_terformat}")
+
+            # print(Arbffr)
+            # print(buffer)
             break
         except serial.SerialException as e:
             print(f"Serial connection failed: {e}")
+            logging.error(f"Serial error: {e}")
+            logging.error(f"General error: {e}")
+            time.sleep(15)
+
             print(tanggal_waktu_terformat)
-            
-            # beep_buzzer(1)
-            
-               
-             # Wait for 5 seconds before attempting to reconnect
-            
+
 
 initialize_serial()  # Initialize the serial connection
+logging.info(f"Serial connection established on {serial_port.port} with baudrate {serial_port.baudrate} at {tanggal_waktu_terformat}")
 
 class SerialReader:
     
@@ -117,9 +116,7 @@ class SerialReader:
                 if serial_port is None:
                     initialize_serial()
                     continue
-
                 line = serial_port.readline().decode(encoding='UTF-8', errors='replace')
-
                 if line:
                     buffer += line
                     if bef == 0:
@@ -144,7 +141,6 @@ class SerialReader:
                                 Rev_diameter = data[41]
                                 Rev_hardness = data[44]
                                 count = int(no)
-
                                 Arbffr[prevCount].append(no)
                                 Arbffr[prevCount].append(batch)
                                 Arbffr[prevCount].append(speed)
@@ -154,13 +150,13 @@ class SerialReader:
                                 Arbffr[prevCount].append(diameter)
                                 Arbffr[prevCount].append(hardness)
                                 prevCount = count
-
                                 buffer = ""
-                                print(thickness, diameter, hardness, Tanggal, tanggal_waktu_terformat)
-                                Data.kirim_data(hardness, diameter, thickness, "N", "A20230626002")
+                                # print(no, thickness, diameter, hardness, Tanggal, tanggal_waktu_terformat)
+                                Data.kirim_data(hardness, diameter, thickness, "N", "A20230626002", time_series=no)
                                 
                             except (ValueError, IndexError) as conversion_error:
-                                print(f"Data conversion error: {conversion_error}")
+                                #print(f"Data conversion error: {conversion_error}")
+
                                 bef = 0
                                 buffer = ""
                                 prevCount = 0
@@ -189,11 +185,13 @@ class SerialReader:
                                 
                                 buffer = ""
                                 print(no, thickness, diameter, hardness, Tanggal, tanggal_waktu_terformat)
-                                Data.kirim_data(hardness, diameter, thickness, "N", "A20230626002")
+                                with open("data_log.txt", "a") as file:
+                                    file.write(f"{time.strftime('%Y-%m-%d %H:%M:%S')}: {no, thickness, diameter, hardness, Tanggal, tanggal_waktu_terformat}\n")
+                                Data.kirim_data(hardness, diameter, thickness, "N", "A20230626002", time_series=no)
+
                                 # print(f"check number: {Arbffr}")
                                 
                             except (ValueError, IndexError) as conversion_error:
-                                print(f"Data conversion error: {conversion_error}")
                                 bef = 0
                                 buffer = ""
                                 prevCount = 0
@@ -211,28 +209,34 @@ class SerialReader:
                             Arbffr = [[]]
             except serial.SerialException as e:
                 print(f"Serial exception: {e}")
+                # logging.error(f"Serial error in except akhir: {e}")
+                # logging.error(f"General error in except akhir: {e}")
+
                 serial_port = None  # Set ser to None to trigger reconnection
                 time.sleep(5)  # Wait for 5 seconds before attempting to reconnect
 
-            print(Arbffr) 
+print(Arbffr)
 
 if __name__ == "__main__":
     Reading = SerialReader()
     Reading.start()
     while True:
         # Read and assign values from global variables
-        h_value = hardness
-        d_value = diameter
-        t_value = thickness
-        status = ""
+        h_value         = hardness
+        d_value         = diameter
+        t_value         = thickness
+        status          = ""
         code_instrument = "A20230626002"
-        created_date = tanggal_waktu_terformat
+        created_date    = tanggal_waktu_terformat
+        time_series     = time_series
+# Fallback if 'no' is not an integer
         
-        with open("data_log.txt", "a") as file:
-                    file.write(f"{time.strftime('%Y-%m-%d %H:%M:%S')}: {data}\n")
-        #time_insert = time
+        # with open("data_log.txt", "a") as file:
+        #             file.write(f"{time.strftime('%Y-%m-%d %H:%M:%S')}: {Arbffr}\n")
+        # time_insert = time
         #print(thickness, diameter, hardness, tanggal_waktu_terformat, time)
-
         # Print or use the values as needed
-        #if (hardness != ""):
-            #print(h_value, d_value, t_value, status, code_instrument)
+        if (hardness != ""):
+            print(h_value, d_value, t_value, status, code_instrument )
+            with open("data_log.txt", "a") as file:
+                file.write(f"{time.strftime('%Y-%m-%d %H:%M:%S')}: {Arbffr}\n")

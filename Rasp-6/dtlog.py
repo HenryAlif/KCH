@@ -34,7 +34,7 @@ tanggal_waktu_terformat = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 # GPIO.setup(buzzer_pin, GPIO.OUT)
 
 # Konfigurasi koneksi ke database PostgreSQL
-db_url ="postgresql://users_pims_engineer:Engineer_2023@10.106.1.40/pims_prod"
+db_url ="mysql+mysqlconnector://root@localhost:3306/kalbe"
 #db_url = "mysql+mysqlconnector://ems_saka:s4k4f4rmA@10.126.15.138:3306/pims_prod"
 
 #db_url = "mysql+mysqlconnector://ems_saka:s4k4f4rmA@10.126.15.138:3306/ems_saka"
@@ -46,7 +46,7 @@ Base = declarative_base()
 
 # Define the Data class
 class Data(Base):
-    __tablename__ = 'sakaplant_prod_ipc_staging'
+    __tablename__ = 'hardness'
 
     id_setup = Column(Integer, primary_key=True)
     h_value = Column(Float)
@@ -87,14 +87,14 @@ def initialize_serial():
             serial_port = serial.Serial(port="COM3", baudrate=9600, timeout=1)
             serial_port.reset_input_buffer()
             print(f"Serial connection established. {tanggal_waktu_terformat}")
-            print(Arbffr)
-            print(buffer)
+            # print(Arbffr)
+            # print(buffer)
             # GPIO.output(buzzer_pin, GPIO.LOW)
                 
             break
         except serial.SerialException as e:
             print(f"Serial connection failed: {e}")
-            print(tanggal_waktu_terformat)
+            # print(tanggal_waktu_terformat)
             
             # beep_buzzer(1)
 
@@ -198,11 +198,8 @@ class SerialReader:
                                 Arbffr[prevCount].append(thickness)
                                 Arbffr[prevCount].append(diameter)
                                 Arbffr[prevCount].append(hardness)
-                                
                                 Arbffr[prevCount].append(data_dict)
-
-                                prevCount = count
-                                
+                                prevCount = count                                
                                 buffer = ""
                                 #print(thickness, diameter, hardness, Tanggal, tanggal_waktu_terformat)
                                 Data.kirim_data(hardness, diameter, thickness, "N", "A20230626002")
@@ -238,7 +235,6 @@ def save_data_to_json(data, file_name='data_log.json'):
         json.dump(data, f, indent=4)
     print("Data saved to JSON")
 
-
 if __name__ == "__main__":
     Reading = SerialReader()
     Reading.start()
@@ -251,13 +247,7 @@ if __name__ == "__main__":
         code_instrument = "A20230626002"
         created_date = tanggal_waktu_terformat
         
-        if Arbffr != [] and len(Arbffr) > 10:
-            with open("data_log_new.txt", "a") as file:
-                file.write(f"{time.strftime('%Y-%m-%d %H:%M:%S')}: {Arbffr}\n")
-        else:
-            print("Data is either an empty list or too short, skipping log.")
-
-        #time_insert = time
+                #time_insert = time
         #print(thickness, diameter, hardness, tanggal_waktu_terformat, time)
 
         # Print or use the values as needed
