@@ -207,7 +207,6 @@ class SerialReader:
                                 data = ""
                                 Arbffr = [[]]
                                 continue
-
                         elif "Xm" in data or "Xmean" in data or "Released:" in data:
                             bef = 0
                             buffer = ""
@@ -224,7 +223,6 @@ class SerialReader:
                 if last_error_message != error_message:
                     Log.kirim_log(error=error_message, time=datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
                     last_error_message = error_message  # Simpan pesan error terakhir yang dikirim
-                
                 serial_port = None
                 time.sleep(5)
 

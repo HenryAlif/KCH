@@ -1,5 +1,0 @@
-2024-10-21 12:53:41,392 [ERROR] Data CONVERSION: could not convert string to float: 'No.'
-2024-10-21 12:54:31,202 [ERROR] Data CONVERSION: could not convert string to float: 'No.'
-2024-10-21 12:57:25,511 [ERROR] Data CONVERSION: could not convert string to float: ''
-2024-10-21 12:58:33,885 [ERROR] Data CONVERSION: could not convert string to float: 'No.'
-2024-10-21 13:01:20,777 [ERROR] Data CONVERSION: could not convert string to float: 'No.'
