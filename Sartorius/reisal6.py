@@ -1,5 +1,5 @@
 import serial
-
+import time
 def process_scale_data(raw_data):
     """Process the raw data received from the scale"""
     try:
@@ -9,14 +9,7 @@ def process_scale_data(raw_data):
         # Perform any data validation or extraction (e.g., extract the weight)
         if data:
             print(f"Received Data: {data}")
-            # Example: If the data starts with "S" (Stable weight indicator), extract weight
-            if data.startswith("S"):
-                weight = data.split()[1]  # Assuming weight is the second value
-                print(f"Stable Weight: {weight}")
-            else:
-                print("Unstable or other data received")
-        else:
-            print("Empty data received")
+            
     
     except UnicodeDecodeError:
         print(f"Received invalid data: {raw_data}")
@@ -26,12 +19,15 @@ def read_scale_data():
     try:
         # Configure the serial connection
         ser = serial.Serial(
-            port='COM6',         # Replace with your actual COM port
-            baudrate=1200,       # Sartorius standard baud rate
-            bytesize=serial.EIGHTBITS,
-            parity=serial.PARITY_ODD,   # Change if your model uses different parity
+            port='COM7',  # Sesuaikan dengan port serial yang sesuai
+            baudrate=9600,
+            bytesize=serial.SEVENBITS,
+            parity=serial.PARITY_ODD,
             stopbits=serial.STOPBITS_ONE,
-            timeout=1            # Timeout to ensure we don't block indefinitely
+            xonxoff=True,
+            rtscts=True,
+            dsrdtr=True,
+            timeout=1         # Timeout to ensure we don't block indefinitely
         )
 
         # Ensure the serial port is open
@@ -48,6 +44,7 @@ def read_scale_data():
                 process_scale_data(raw_data)  # Process the received data
             else:
                 print("No data available, waiting...")
+            time.sleep(1)  # Wait for a second before reading again
         
     except serial.SerialException as e:
         print(f"Error: {e}")

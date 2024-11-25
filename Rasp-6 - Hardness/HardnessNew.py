@@ -31,7 +31,7 @@ last_error_message = None
 tanggal_waktu_terformat = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
 # Konfigurasi koneksi ke database PostgreSQL
-db_url = "postgresql://users_pims_engineer:Engineer_2023@10.106.1.40/pims_prod"
+db_url = "postgresql://:Engineer_2023@10.106.1.40/pims_prod"
 engine = create_engine(db_url, pool_pre_ping=True)
 Base = sqlalchemy.orm.declarative_base()
 

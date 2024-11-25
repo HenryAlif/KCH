@@ -3,7 +3,7 @@ import serial
 def init_serial_connection():
     try:
         ser = serial.Serial(
-            port='/dev/ttyS0',  # Sesuaikan dengan port serial yang sesuai
+            port='COM7',  # Sesuaikan dengan port serial yang sesuai
             baudrate=9600,
             bytesize=serial.SEVENBITS,
             parity=serial.PARITY_ODD,

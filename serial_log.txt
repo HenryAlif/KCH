@@ -1,0 +1,2 @@
+2024-11-20 14:44:41,883 [ERROR] Error opening serial port COM3: could not open port 'COM3': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+2024-11-20 14:44:46,884 [ERROR] Error opening serial port COM3: could not open port 'COM3': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)

@@ -1,0 +1,8 @@
+2024-11-21 08:31:22,440 [ERROR] Error opening serial port COM3: could not open port 'COM3': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+2024-11-21 08:31:27,440 [ERROR] Error opening serial port COM3: could not open port 'COM3': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+2024-11-21 08:31:32,442 [ERROR] Error opening serial port COM3: could not open port 'COM3': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+2024-11-21 08:40:44,185 [ERROR] Error reading data: ClearCommError failed (PermissionError(13, 'The device does not recognize the command.', None, 22))
+2024-11-21 08:41:01,868 [ERROR] Error processing data: 'str' object has no attribute 'strftime'
+2024-11-21 08:41:11,530 [ERROR] Error processing data: 'str' object has no attribute 'strftime'
+2024-11-21 08:43:15,005 [ERROR] Error reading data: ClearCommError failed (PermissionError(13, 'The device does not recognize the command.', None, 22))
+2024-11-21 12:44:06,473 [ERROR] Error reading data: ClearCommError failed (PermissionError(13, 'The device does not recognize the command.', None, 22))

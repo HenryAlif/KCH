@@ -33,4 +33,229 @@
     {'h_value': 11.6, 'd_value': 18.13, 't_value': 5.7, 'status': 'N', 'code_instrument': 'A20230626002', 'time_series': '3'}, 
     {'h_value': 11.7, 'd_value': 18.17, 't_value': 5.57, 'status': 'N', 'code_instrument': 'A20230626002', 'time_series': '4'}, 
     {'h_value': 12.0, 'd_value': 18.19, 't_value': 5.63, 'status': 'N', 'code_instrument': 'A20230626002', 'time_series': '5'}
-]
+]2024-11-20 13:56:20,942 - INFO - Trying to establish serial connection...
+2024-11-20 13:56:20,969 - INFO - Serial connection established.
+2024-11-20 13:56:20,969 - INFO - Waiting for serial data...
+2024-11-20 13:56:22,780 - INFO - Complete data received.
+2024-11-20 13:56:22,780 - INFO - Processing line: --------------------
+2024-11-20 13:56:22,781 - INFO - Processing line: 20-Nov-2024 09:53
+2024-11-20 13:56:22,781 - INFO - Processing line: Sartorius
+2024-11-20 13:56:22,781 - INFO - Processing line: Mod.      BCA224I-1S
+2024-11-20 13:56:22,782 - INFO - Processing line: SerNo.    004210
+2024-11-20 13:56:22,789 - INFO - Data saved to database: <__main__.ScalesData object at 0x000001D064B1A330>
+2024-11-20 13:56:22,891 - INFO - Complete data received.
+2024-11-20 13:56:22,892 - INFO - Processing line: 4083
+2024-11-20 13:56:22,893 - INFO - Processing line: APC:  01-74-02.01.01
+2024-11-20 13:56:22,893 - INFO - Processing line: BAC:  00-60-01.03.00
+2024-11-20 13:56:22,893 - INFO - Processing line: --------------------
+2024-11-20 13:56:22,894 - INFO - Processing line: L ID           TMXTG
+2024-11-20 13:56:22,894 - INFO - Processing line: L ID2    STM
+2024-11-20 13:56:22,898 - INFO - Data saved to database: <__main__.ScalesData object at 0x000001D0645821B0>
+2024-11-20 13:57:42,050 - INFO - Complete data received.
+2024-11-20 13:57:42,051 - WARNING - Insufficient data to process.
+2024-11-20 13:57:42,253 - INFO - Complete data received.
+2024-11-20 13:57:42,254 - INFO - Processing line: 24 09:53
+2024-11-20 13:57:42,254 - INFO - Processing line: Sartorius
+2024-11-20 13:57:42,255 - INFO - Processing line: Mod.      BCA224I-1S
+2024-11-20 13:57:42,255 - INFO - Processing line: SerNo.    0042104083
+2024-11-20 13:57:42,255 - INFO - Processing line: APC:  01-74-02.01.01
+2024-11-20 13:57:42,255 - INFO - Processing line: BAC:  00-60-01.03.00
+2024-11-20 13:57:42,256 - INFO - Processing line: --------------------
+2024-11-20 13:57:42,256 - INFO - Processing line: L ID           TMXTG
+2024-11-20 13:57:42,256 - INFO - Processing line: L ID2    STMXTG45241
+2024-11-20 13:57:42,257 - INFO - Processing line: G     +   0.6811 g
+2024-11-20 13:57:42,261 - INFO - Data saved to database: <__main__.ScalesData object at 0x000001D064B5BEF0>
+2024-11-20 13:57:51,910 - INFO - Program terminated by user.
+2024-11-20 13:57:57,179 - INFO - Trying to establish serial connection...
+2024-11-20 13:57:57,205 - INFO - Serial connection established.
+2024-11-20 13:57:57,205 - INFO - Waiting for serial data...
+2024-11-20 13:57:59,017 - INFO - Complete data received.
+2024-11-20 13:57:59,018 - INFO - Processing line: --------------------
+2024-11-20 13:57:59,019 - INFO - Processing line: 20-Nov-2024 09:53
+2024-11-20 13:57:59,019 - INFO - Processing line: Sartorius
+2024-11-20 13:57:59,019 - INFO - Processing line: Mod.      BCA224I-1S
+2024-11-20 13:57:59,020 - INFO - Processing line: SerNo.    0042
+2024-11-20 13:57:59,057 - INFO - Data saved to database: <__main__.ScalesData object at 0x000002669E56B8F0>
+2024-11-20 13:57:59,158 - INFO - Complete data received.
+2024-11-20 13:57:59,158 - INFO - Processing line: 104083
+2024-11-20 13:57:59,159 - INFO - Processing line: APC:  01-74-02.01.01
+2024-11-20 13:57:59,159 - INFO - Processing line: BAC:  00-60-01.03.00
+2024-11-20 13:57:59,181 - INFO - Processing line: --------------------
+2024-11-20 13:57:59,182 - INFO - Processing line: L ID           TMXTG
+2024-11-20 13:57:59,183 - INFO - Processing line: L ID2    STMXTG45241
+2024-11-20 13:57:59,183 - INFO - Processing line: G     +   0.6811
+2024-11-20 13:57:59,205 - INFO - Data saved to database: <__main__.ScalesData object at 0x00000266A01A5BB0>
+2024-11-20 13:59:19,244 - INFO - Program terminated by user.
+2024-11-20 13:59:58,490 - INFO - Trying to establish serial connection...
+2024-11-20 13:59:58,516 - INFO - Serial connection established.
+2024-11-20 13:59:58,516 - INFO - Waiting for serial data...
+2024-11-20 14:00:49,894 - INFO - Program terminated by user.
+2024-11-20 14:00:55,202 - INFO - Trying to establish serial connection...
+2024-11-20 14:00:55,228 - INFO - Serial connection established.
+2024-11-20 14:02:22,896 - INFO - Trying to establish serial connection...
+2024-11-20 14:02:22,921 - INFO - Serial connection established.
+2024-11-20 14:02:22,922 - INFO - Waiting for serial data...
+2024-11-20 14:02:24,658 - INFO - Processing incoming data...
+2024-11-20 14:02:24,658 - WARNING - Insufficient data to process.
+2024-11-20 14:02:24,780 - INFO - Processing incoming data...
+2024-11-20 14:02:24,780 - INFO - Processing line: 20-Nov-2024 09:53
+2024-11-20 14:02:24,780 - INFO - Processing line: Sartorius
+2024-11-20 14:02:24,781 - INFO - Processing line: Mod.      BCA224I-1S
+2024-11-20 14:02:24,781 - INFO - Processing line: SerNo.    0042104083
+2024-11-20 14:02:24,782 - INFO - Processing line: APC:  01-74-02.01.01
+2024-11-20 14:02:24,782 - INFO - Processing line: BAC:  00-60-01.03
+2024-11-20 14:02:24,814 - INFO - Data saved to database: <__main__.ScalesData object at 0x0000024D748722A0>
+2024-11-20 14:02:24,916 - INFO - Processing incoming data...
+2024-11-20 14:02:24,917 - INFO - Processing line: .00
+2024-11-20 14:02:24,917 - INFO - Processing line: --------------------
+2024-11-20 14:02:24,918 - INFO - Processing line: L ID           TMXTG
+2024-11-20 14:02:24,918 - INFO - Processing line: L ID2    STMXTG45241
+2024-11-20 14:02:24,919 - INFO - Processing line: G     +   0.6811 g
+2024-11-20 14:02:24,938 - INFO - Data saved to database: <__main__.ScalesData object at 0x0000024D748722A0>
+2024-11-20 14:04:39,705 - INFO - Program terminated by user.
+2024-11-20 14:04:44,458 - INFO - Trying to establish serial connection...
+2024-11-20 14:04:44,483 - INFO - Serial connection established.
+2024-11-20 14:04:44,484 - INFO - Waiting for serial data...
+2024-11-20 14:04:46,293 - INFO - Processing complete data...
+2024-11-20 14:04:46,294 - WARNING - Insufficient data to process.
+2024-11-20 14:04:46,395 - INFO - Processing complete data...
+2024-11-20 14:04:46,395 - INFO - Processing line: 20-Nov-2024 09:53
+2024-11-20 14:04:46,395 - INFO - Processing line: Sartorius
+2024-11-20 14:04:46,396 - INFO - Processing line: Mod.      BCA224I-1S
+2024-11-20 14:04:46,396 - INFO - Processing line: SerNo.    0042104083
+2024-11-20 14:04:46,396 - INFO - Processing line: APC:  01-74-02.01.01
+2024-11-20 14:04:46,396 - INFO - Processing line: BAC:  00-60-01.03.00
+2024-11-20 14:04:46,397 - INFO - Processing line: --------------------
+2024-11-20 14:04:46,431 - INFO - Data saved to database: <__main__.ScalesData object at 0x000001ED72675070>
+2024-11-20 14:04:55,192 - INFO - Processing complete data...
+2024-11-20 14:04:55,192 - INFO - Processing line: -------------------
+2024-11-20 14:04:55,193 - INFO - Processing line: 20-Nov-2024 09:53
+2024-11-20 14:04:55,193 - INFO - Processing line: Sartorius
+2024-11-20 14:04:55,193 - INFO - Processing line: Mod.      BCA224I-1S
+2024-11-20 14:04:55,194 - INFO - Processing line: SerNo.    0042104083
+2024-11-20 14:04:55,194 - INFO - Processing line: APC:  01-74-02.01.01
+2024-11-20 14:04:55,194 - INFO - Processing line: BAC:  00-60-01.03.00
+2024-11-20 14:04:55,196 - INFO - Processing line: --------------------
+2024-11-20 14:04:55,229 - INFO - Data saved to database: <__main__.ScalesData object at 0x000001ED71811730>
+2024-11-20 14:07:40,543 - INFO - Program terminated by user.
+2024-11-20 14:07:45,946 - INFO - Trying to establish serial connection...
+2024-11-20 14:07:45,971 - INFO - Serial connection established.
+2024-11-20 14:07:45,972 - INFO - Waiting for serial data...
+2024-11-20 14:07:47,882 - INFO - Processing complete data...
+2024-11-20 14:07:47,883 - WARNING - Insufficient data to process.
+2024-11-20 14:08:38,904 - INFO - Program terminated by user.
+2024-11-20 14:08:42,888 - INFO - Trying to establish serial connection...
+2024-11-20 14:08:42,913 - INFO - Serial connection established.
+2024-11-20 14:14:27,861 - INFO - Trying to establish serial connection...
+2024-11-20 14:14:27,886 - INFO - Serial connection established.
+2024-11-20 14:14:27,887 - INFO - Waiting for serial data...
+2024-11-20 14:14:29,695 - INFO - Processing incoming data...
+2024-11-20 14:14:29,696 - INFO - Processing line: --------------------
+2024-11-20 14:14:29,697 - INFO - Processing line: 20-Nov-2024 09:53
+2024-11-20 14:14:29,697 - INFO - Processing line: Sartorius
+2024-11-20 14:14:29,698 - INFO - Processing line: Mod.      BCA224I-1S
+2024-11-20 14:14:29,699 - INFO - Processing line: SerNo.    00
+2024-11-20 14:14:29,723 - INFO - Data saved to database: <__main__.ScalesData object at 0x000001B0B8859190>
+2024-11-20 14:14:29,824 - INFO - Processing incoming data...
+2024-11-20 14:14:29,825 - INFO - Processing line: 42104083
+2024-11-20 14:14:29,825 - INFO - Processing line: APC:  01-74-02.01.01
+2024-11-20 14:14:29,825 - INFO - Processing line: BAC:  00-60-01.03.00
+2024-11-20 14:14:29,826 - INFO - Processing line: --------------------
+2024-11-20 14:14:29,826 - INFO - Processing line: L ID           TMXTG
+2024-11-20 14:14:29,827 - INFO - Processing line: L ID2    STMXTG45241
+2024-11-20 14:14:29,827 - INFO - Processing line: G
+2024-11-20 14:14:29,849 - INFO - Data saved to database: <__main__.ScalesData object at 0x000001B0B885A630>
+2024-11-20 14:14:29,951 - INFO - Processing incoming data...
+2024-11-20 14:14:29,951 - WARNING - Insufficient data to process.
+2024-11-20 14:15:06,142 - INFO - Processing incoming data...
+2024-11-20 14:15:06,143 - WARNING - Insufficient data to process.
+2024-11-20 14:15:06,244 - INFO - Processing incoming data...
+2024-11-20 14:15:06,245 - INFO - Processing line: ------
+2024-11-20 14:15:06,245 - INFO - Processing line: 20-Nov-2024 09:53
+2024-11-20 14:15:06,246 - INFO - Processing line: Sartorius
+2024-11-20 14:15:06,246 - INFO - Processing line: Mod.      BCA224I-1S
+2024-11-20 14:15:06,247 - INFO - Processing line: SerNo.    0042104083
+2024-11-20 14:15:06,247 - INFO - Processing line: APC:  01-74-
+2024-11-20 14:15:06,263 - INFO - Data saved to database: <__main__.ScalesData object at 0x000001B0B9D1BC20>
+2024-11-20 14:15:06,364 - INFO - Processing incoming data...
+2024-11-20 14:15:06,364 - INFO - Processing line: 02.01.01
+2024-11-20 14:15:06,366 - INFO - Processing line: BAC:  00-60-01.03.00
+2024-11-20 14:15:06,366 - INFO - Processing line: --------------------
+2024-11-20 14:15:06,367 - INFO - Processing line: L ID           TMXTG
+2024-11-20 14:15:06,367 - INFO - Processing line: L ID2    STMXTG45241
+2024-11-20 14:15:06,367 - INFO - Processing line: G     +   0.6811
+2024-11-20 14:15:06,422 - INFO - Data saved to database: <__main__.ScalesData object at 0x000001B0B9D1A300>
+2024-11-20 14:15:06,523 - INFO - Processing incoming data...
+2024-11-20 14:15:06,523 - WARNING - Insufficient data to process.
+2024-11-20 14:16:03,408 - INFO - Program terminated by user.
+2024-11-20 14:16:07,033 - INFO - Trying to establish serial connection...
+2024-11-20 14:16:07,059 - INFO - Serial connection established.
+2024-11-20 14:16:07,060 - INFO - Waiting for serial data...
+2024-11-20 14:16:08,869 - INFO - Processing incoming data...
+2024-11-20 14:16:08,869 - ERROR - Data split is too short: ['--------------------\r', '20-Nov-2024 09:53\r', '    Sartorius\r', 'Mod.      BCA224I-1S\r', 'SerNo.    0042']
+2024-11-20 14:16:09,000 - INFO - Processing incoming data...
+2024-11-20 14:16:09,001 - ERROR - Data split is too short: ['104083\r', 'APC:  01-74-02.01.01\r', 'BAC:  00-60-01.03.00\r', '--------------------\r', 'L ID           TMXTG\r', 'L ID2    STMXTG45241\r', 'G     +']
+2024-11-20 14:16:09,102 - INFO - Processing incoming data...
+2024-11-20 14:16:09,102 - ERROR - Data split is too short: ['0.6811 g']
+2024-11-20 14:30:26,560 - INFO - Trying to establish serial connection...
+2024-11-20 14:30:26,570 - ERROR - Serial connection failed: could not open port 'COM3': PermissionError(13, 'Access is denied.', None, 5)
+2024-11-20 14:30:26,570 - INFO - Retrying in 5 seconds...
+2024-11-20 14:30:31,571 - INFO - Trying to establish serial connection...
+2024-11-20 14:30:31,571 - ERROR - Serial connection failed: could not open port 'COM3': PermissionError(13, 'Access is denied.', None, 5)
+2024-11-20 14:30:31,572 - INFO - Retrying in 5 seconds...
+2024-11-20 14:30:35,655 - INFO - Processing incoming data...
+2024-11-20 14:30:35,659 - ERROR - Data split is too short: ['--------------------\r', '20-Nov-2024 09:53\r', '    Sartorius\r', 'Mod.      BCA224I-1S\r', 'SerNo.']
+2024-11-20 14:30:35,760 - INFO - Processing incoming data...
+2024-11-20 14:30:35,760 - ERROR - Data split is too short: ['0042104083\r', 'APC:  01-74-02.01.01\r', 'BAC:  00-60-01.03.00\r', '--------------------\r', 'L ID           TMXTG']
+2024-11-20 14:30:35,862 - INFO - Processing incoming data...
+2024-11-20 14:30:35,863 - ERROR - Data split is too short: ['L ID2    STMXTG45241\r', 'G     +   0.6811 g']
+2024-11-20 14:30:36,573 - INFO - Trying to establish serial connection...
+2024-11-20 14:30:36,582 - ERROR - Serial connection failed: could not open port 'COM3': PermissionError(13, 'Access is denied.', None, 5)
+2024-11-20 14:30:36,582 - INFO - Retrying in 5 seconds...
+2024-11-20 14:30:38,478 - ERROR - An error occurred: ClearCommError failed (PermissionError(13, 'The device does not recognize the command.', None, 22))
+2024-11-20 14:30:41,583 - INFO - Trying to establish serial connection...
+2024-11-20 14:30:41,608 - INFO - Serial connection established.
+2024-11-20 14:30:41,609 - INFO - Waiting for serial data...
+2024-11-20 14:34:32,656 - ERROR - An error occurred: ClearCommError failed (PermissionError(13, 'The device does not recognize the command.', None, 22))
+2024-11-20 15:07:56: --------------------  
+2024-11-20 15:07:56: 20-Nov-2024 09:53  Sartorius  Mod.      BCA224I-1S  SerNo.    0042104083  APC:  01-74-02.01.01  BAC:  00-60-01.03.00  --------------------  
+20-Nov-2024 09:53
+Sartorius
+Mod.      BCA224I-1S
+SerNo.    0042104083
+APC:  01-74-02.01.01
+BAC:  00-60-01.03.00
+
+L ID           TMXTG
+L ID2    STMXTG45241
+G     +   0.6811 g
+20-Nov-2024 09:53
+Sartorius
+Mod.      BCA224I-1S
+SerNo.    0042104083
+APC:  01-74-02.01.01
+BAC:  00-60-01.03.00
+
+L ID           TMXTG
+L ID2    STMXTG45241
+G     +   0.6811 g
+20-Nov-2024 09:53
+Sartorius
+Mod.      BCA224I-1S
+SerNo.    0042104083
+APC:  01-74-02.01.01
+BAC:  00-60-01.03.00
+
+L ID           TMXTG
+L ID2    STMXTG45241
+G     +   0.6811 g
+20-Nov-2024 09:53
+Sartorius
+Mod.      BCA224I-1S
+SerNo.    0042104083
+APC:  01-74-02.01.01
+BAC:  00-60-01.03.00
+
+L ID           TMXTG
+L ID2    STMXTG45241
+G     +   0.6811 g
