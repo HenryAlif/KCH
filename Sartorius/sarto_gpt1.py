@@ -89,20 +89,28 @@ def process_data(data, session):
         print(f"Error processing data: {e}")
         logging.error(f"Error processing data: {e}")
 
-def read_and_process_data(ser, session):
+def read_and_process_data(ser, session, port, baudrate, timeout):
     """Read and process data from the serial port."""
-    try:
-        buffer = ""
-        while True:
+    buffer = ""
+    while True:
+        try:
+            # Attempt to read a line of data
             line = ser.readline().decode('utf-8', errors='replace').strip()
             if line:
                 buffer += line + "\n"
                 if "g" in line:  # End of a reading
                     process_data(buffer, session)
                     buffer = ""
-    except Exception as e:
-        print(f"Error reading data: {e}")
-        logging.error(f"Error reading data: {e}")
+        except serial.SerialException as e:
+            print(f"Serial exception occurred: {e}")
+            logging.error(f"Serial exception occurred: {e}")
+            ser.close()  # Close the port safely
+            print("Attempting to reconnect...")
+            ser = open_serial_port(port, baudrate, timeout)  # Attempt to reconnect
+        except Exception as e:
+            print(f"Error reading data: {e}")
+            logging.error(f"Error reading data: {e}")
+            break
 
 def main():
     # Database setup
@@ -114,10 +122,13 @@ def main():
 
     # Serial port setup
     usb_port = "COM3"  # Replace with your port
-    ser = open_serial_port(usb_port)
+    baudrate = 9600
+    timeout = 1
+
+    ser = open_serial_port(usb_port, baudrate, timeout)
 
     try:
-        read_and_process_data(ser, session)
+        read_and_process_data(ser, session, usb_port, baudrate, timeout)
     except KeyboardInterrupt:
         close_serial_port(ser)
     except Exception as e:

@@ -259,3 +259,43 @@ BAC:  00-60-01.03.00
 L ID           TMXTG
 L ID2    STMXTG45241
 G     +   0.6811 g
+20-Nov-2024 09:53
+Sartorius
+Mod.      BCA224I-1S
+SerNo.    0042104083
+APC:  01-74-02.01.01
+BAC:  00-60-01.03.00
+
+L ID           TMXTG
+L ID2    STMXTG45241
+G     +   0.6811 g
+20-Nov-2024 09:53
+Sartorius
+Mod.      BCA224I-1S
+SerNo.    0042104083
+APC:  01-74-02.01.01
+BAC:  00-60-01.03.00
+
+L ID           TMXTG
+L ID2    STMXTG45241
+G     +   0.6811 g
+20-Nov-2024 09:53
+Sartorius
+Mod.      BCA224I-1S
+SerNo.    0042104083
+APC:  01-74-02.01.01
+BAC:  00-60-01.03.00
+
+L ID           TMXTG
+L ID2    STMXTG45241
+G     +   0.6811 g
+20-Nov-2024 09:53
+Sartorius
+Mod.      BCA224I-1S
+SerNo.    0042104083
+APC:  01-74-02.01.01
+BAC:  00-60-01.03.00
+
+L ID           TMXTG
+L ID2    STMXTG45241
+G     +   0.6811 g
