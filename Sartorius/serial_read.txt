@@ -1,7 +1,7 @@
 SERIAL READ FROM SARTORIUS!
 
 
-
+//serial read yang di F
 --------------------
 20-Nov-2024 09:53   
     Sartorius       
@@ -10,9 +10,27 @@ SerNo.    0042104083
 APC:  01-74-02.01.01
 BAC:  00-60-01.03.00
 --------------------
-L ID           TMXTG
 L ID2    STMXTG45241
 G     +   0.6811 g 
+
+
+//serial read yang di E
+--------------------
+25-Nov-2024 14:36   
+    Sartorius       
+Mod.      BCA224I-1S
+SerNo.    0039304643
+APC:  01-74-02.01.01
+BAC:  00-60-01.03.00
+ID    PT. SAKA FARMA
+--------------------
+L ID  STMXGE46476ST2
+N     +   0.3205 g  
+
+
+--------------------
+25-Nov-2024 14:36   
+Name :        RND       
 
 
 Data base
@@ -28,7 +46,6 @@ l_id2
 gram
 
 
-
 saya memiliki tugas untuk membuat program python dari timbangan Sartorius, data yang diterima oleh python akan di proses melalui raspberry.
 
 dengan table sebagai berikut 
@@ -42,7 +59,6 @@ class ScalesData(Base):
     APC = Column(String)
     BAC = Column(String)
     l_id = Column(String)
-    l_id2 = Column(String)
     gram = Column(Float)
 
 data serial print yang saya dapatkan dari timbangan mettler sebagai berikut ini :
@@ -55,7 +71,6 @@ APC:  01-74-02.01.01
 BAC:  00-60-01.03.00
 --------------------
 L ID           TMXTG
-L ID2    STMXTG45241
 G     +   0.6811 g 
 
 dengan penjelasan bahwa 
@@ -239,3 +254,45 @@ def main():
 if __name__ == "__main__":
     
     main()
+
+
+
+--------------------
+25-Nov-2024 14:36   
+Name :        RND    
+
+kode program sebelumnya sudah berjalan dan sesuai harapan, akan tetapi saya memiliki kendala.
+ternyata alat mengirimkan 2 value print, yakni yang sudah sesuai dan tambahan yakni
+
+--------------------
+25-Nov-2024 14:36   
+Name :        RND    
+
+data tersebut cukup mengganggu flow penerimaan dan pengupload an data ke database
+
+jadi contohnya seperti ini hasil printnya
+
+print 1
+--------------------
+25-Nov-2024 14:36   
+    Sartorius       
+Mod.      BCA224I-1S
+SerNo.    0039304643
+APC:  01-74-02.01.01
+BAC:  00-60-01.03.00
+ID    PT. SAKA FARMA
+--------------------
+L ID  STMXGE46476ST2
+N     +   0.3205 g  
+
+selesai
+
+print 2
+--------------------
+25-Nov-2024 14:36   
+Name :        RND 
+
+selesai
+
+
+padahal saya hanya ingin mengambil value dari print 1, apakah anda bisa lakukan validasi untuk hal ini?

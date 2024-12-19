@@ -21,3 +21,4 @@
 2024-11-25 12:39:42,642 [ERROR] Error opening serial port COM3: could not open port 'COM3': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
 2024-11-25 12:39:47,643 [ERROR] Error opening serial port COM3: could not open port 'COM3': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
 2024-11-25 12:39:52,645 [ERROR] Error opening serial port COM3: could not open port 'COM3': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+2024-11-25 15:05:35,885 [ERROR] Data validation error: Data format error: Insufficient lines in data. Received 2 lines.

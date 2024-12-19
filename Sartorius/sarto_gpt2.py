@@ -5,7 +5,6 @@ import re
 from sqlalchemy import create_engine, Column, Float, Integer, String
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
-from datetime import datetime
 
 # Configure logging
 logging.basicConfig(filename='sartorius_serial_log.txt', level=logging.ERROR, format='%(asctime)s [%(levelname)s] %(message)s')
@@ -26,10 +25,20 @@ class ScalesData(Base):
     gram = Column(Float)
 
 def open_serial_port(port, baudrate=9600, timeout=1):
-    """Open the serial port."""
+    """Open the serial port with specific settings."""
     while True:
         try:
-            ser = serial.Serial(port, baudrate=baudrate, timeout=timeout)
+            ser = serial.Serial(
+                port=port,
+                baudrate=baudrate,
+                bytesize=serial.SEVENBITS,
+                parity=serial.PARITY_ODD,
+                stopbits=serial.STOPBITS_ONE,
+                xonxoff=True,
+                rtscts=True,
+                dsrdtr=True,
+                timeout=timeout
+            )
             print(f"Serial port {port} opened successfully.")
             logging.info(f"Serial port {port} opened successfully.")
             return ser
@@ -51,18 +60,32 @@ def close_serial_port(ser):
 def process_data(data, session):
     """Process the received data and store it in the database."""
     try:
+        # Log the raw data for debugging
+        print(f"Raw data received:\n{data}")
+        logging.info(f"Raw data received:\n{data}")
+
         # Clean up unnecessary lines (e.g., "----")
         data = re.sub(r'-{2,}', '', data).strip()
         lines = [line.strip() for line in data.split('\n') if line.strip()]
 
-        # Parse data based on known structure
+        # Validate data format
+        if len(lines) < 8:
+            raise ValueError(f"Data format error: Insufficient lines in data. Received {len(lines)} lines.")
+
+        # Parse data
         date, time = lines[0].split()[:2]
-        mod = lines[2].split()[-1]
-        ser_no = lines[3].split()[-1]
-        APC = lines[4].split(':')[-1].strip()
-        BAC = lines[5].split(':')[-1].strip()
+        mod = lines[1].split()[-1]
+        ser_no = lines[2].split()[-1]
+        APC = lines[3].split(':')[-1].strip()
+        BAC = lines[4].split(':')[-1].strip()
         l_id = lines[6].split()[-1]
-        gram = float(lines[8].split()[-2])
+
+        # Extract gram value
+        gram_match = re.search(r'[+-]?\d+\.\d+\s*g', lines[7])
+        if not gram_match:
+            raise ValueError(f"Gram value not found in line: {lines[7]}")
+        gram_str = gram_match.group()
+        gram = float(gram_str.split()[0])
 
         # Create a new database entry
         new_entry = ScalesData(
@@ -82,6 +105,9 @@ def process_data(data, session):
             file.write(f"{date, time, mod, ser_no, APC, BAC, l_id, gram}\n")
         with open("data_log.txt", "a") as file:
             file.write(f"{data}\n")
+    except ValueError as ve:
+        print(f"Data validation error: {ve}")
+        logging.error(f"Data validation error: {ve}")
     except Exception as e:
         print(f"Error processing data: {e}")
         logging.error(f"Error processing data: {e}")

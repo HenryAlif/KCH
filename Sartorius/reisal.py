@@ -3,7 +3,7 @@ import time
 
 # Set the serial port according to your system
 SERIAL_PORT = 'COM7'  # Update this to the correct COM port (e.g., /dev/ttyUSB0 for Linux)
-SERIAL_RATE = 9600  # Baudrate (as per Sartorius manual)
+SERIAL_RATE = 1200  # Baudrate (as per Sartorius manual)
 TIMEOUT = 1  # Set a timeout for reading
 
 def read_serial_data():

@@ -31,12 +31,12 @@ last_error_message = None
 tanggal_waktu_terformat = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
 # Konfigurasi koneksi ke database PostgreSQL
-db_url = "postgresql://:Engineer_2023@10.106.1.40/pims_prod"
+db_url = "postgresql:"
 engine = create_engine(db_url, pool_pre_ping=True)
 Base = sqlalchemy.orm.declarative_base()
 
 class Data(Base):
-    __tablename__ = 'sakaplant_prod_ipc_staging'
+    __tablename__ = 'ipc_staging'
 
     id_setup = Column(Integer, primary_key=True)
     h_value = Column(Float)
