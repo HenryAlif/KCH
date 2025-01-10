@@ -6,37 +6,7 @@
         "status": "N",
         "code_instrument": "A20230626002",
         "time_series": "3",
-        "time_insert": "15:33:47",
-        "created_date": "2025-01-08"
-    },
-    {
-        "h_value": 11.6,
-        "d_value": 18.13,
-        "t_value": 5.7,
-        "status": "N",
-        "code_instrument": "A20230626002",
-        "time_series": "3",
-        "time_insert": "15:34:06",
-        "created_date": "2025-01-08"
-    },
-    {
-        "h_value": 11.6,
-        "d_value": 18.13,
-        "t_value": 5.7,
-        "status": "N",
-        "code_instrument": "A20230626002",
-        "time_series": "3",
-        "time_insert": "15:34:19",
-        "created_date": "2025-01-08"
-    },
-    {
-        "h_value": 11.6,
-        "d_value": 18.13,
-        "t_value": 5.7,
-        "status": "N",
-        "code_instrument": "A20230626002",
-        "time_series": "3",
-        "time_insert": "15:34:35",
-        "created_date": "2025-01-08"
+        "time_insert": "13:42:27",
+        "created_date": "2025-01-10"
     }
 ]

@@ -18,3 +18,4 @@
 2025-01-09 09:20:10: {'h_value': 11.6, 'd_value': 18.13, 't_value': 5.7, 'status': 'N', 'code_instrument': 'A20230626002', 'time_series': '3', 'time_insert': '09:20:10', 'created_date': '2025-01-09'}
 2025-01-09 12:09:58: {'h_value': 11.6, 'd_value': 18.13, 't_value': 5.7, 'status': 'N', 'code_instrument': 'A20230626002', 'time_series': '3', 'time_insert': '12:09:58', 'created_date': '2025-01-09'}
 2025-01-09 12:10:09: {'h_value': 11.6, 'd_value': 18.13, 't_value': 5.7, 'status': 'N', 'code_instrument': 'A20230626002', 'time_series': '3', 'time_insert': '12:10:09', 'created_date': '2025-01-09'}
+2025-01-10 13:39:59: {'h_value': 11.6, 'd_value': 18.13, 't_value': 5.7, 'status': 'N', 'code_instrument': 'A20230626002', 'time_series': '3', 'time_insert': '13:39:59', 'created_date': '2025-01-10'}
