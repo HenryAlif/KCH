@@ -10,8 +10,8 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 from datetime import datetime
 
-logging.basicConfig(filename='serial_log.txt', level=logging.ERROR, format='%(asctime)s [%(levelname)s] %(message)s')
-logging.basicConfig(filename='info_log.txt', level=logging.INFO, format='%(asctime)s [%(levelname)s] %(message)s')
+logging.basicConfig(filename='serial_log.xlsx', level=logging.ERROR, format='%(asctime)s [%(levelname)s] %(message)s')
+logging.basicConfig(filename='info_log.xlsx', level=logging.INFO, format='%(asctime)s [%(levelname)s] %(message)s')
 
 # Initialize global variables
 bef = 0
@@ -31,13 +31,13 @@ last_error_message = None
 tanggal_waktu_terformat = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
 # Konfigurasi koneksi ke database PostgreSQL
-db_url = 'mysql+mysqlconnector://root:s4k4f4rmA@10.126.15.138:3306/ems_saka'
+db_url = "postgresql://users_pims_engineer:Engineer_2023@10.106.1.40/pims_prod"
 engine = create_engine(db_url, pool_pre_ping=True)
 Base = sqlalchemy.orm.declarative_base()
 
-# Model untuk Data dan Log di database
 class Data(Base):
     __tablename__ = 'sakaplant_prod_ipc_staging'
+
 
     id_setup = Column(Integer, primary_key=True)
     h_value = Column(Float)
@@ -89,7 +89,7 @@ def initialize_serial():
     global serial_port, tanggal_waktu_terformat, last_error_message
     while True:
         try:
-            serial_port = serial.Serial(port="COM3", baudrate=9600, timeout=1)
+            serial_port = serial.Serial(port="COM4", baudrate=9600, timeout=1)
             serial_port.reset_input_buffer()
             print(f"Serial connection established. {tanggal_waktu_terformat}")
             logging.info(f"Serial connection established on {serial_port.port} with baudrate {serial_port.baudrate} at {tanggal_waktu_terformat}")
@@ -175,7 +175,7 @@ class SerialReader:
 
                                 #print(no, thickness, diameter, hardness, Tanggal, tanggal_waktu_terformat)
                                 Data.kirim_data(hardness, diameter, thickness, "N", "A20230626002", time_series=no)
-                                with open("data_log.txt", "a") as file:
+                                with open("data_logasda.xlsx", "a") as file:
                                     #file.write(f"{time.strftime('%Y-%m-%d %H:%M:%S')}: {no, thickness, diameter, hardness, Tanggal, tanggal_waktu_terformat}\n")
                                     file.write(f"{time.strftime('%Y-%m-%d %H:%M:%S')}: {no}, {thickness}, {diameter}, {hardness}, {Tanggal}, {tanggal_waktu_terformat}\n")
 
@@ -183,7 +183,7 @@ class SerialReader:
                             except (ValueError, IndexError) as conversion_error:
                                 error_message = f"Data CONVERSION: {conversion_error}"
                                 logging.error(error_message)
-                                # print(error_message)
+                                print(error_message)
                                 
                                 # Cek apakah error sama sudah dikirim sebelumnya
                                 if last_error_message != error_message:
@@ -224,7 +224,7 @@ class SerialReader:
                                 buffer = ""
                                 
                                 #print(no, thickness, diameter, hardness, Tanggal, tanggal_waktu_terformat)
-                                with open("data_log.txt", "a") as file:
+                                with open("data_log33232.xlsx", "a") as file:
                                     file.write(f"{time.strftime('%Y-%m-%d %H:%M:%S')}: {no, thickness, diameter, hardness, Tanggal, tanggal_waktu_terformat}\n")
                                     #file.write(f"{time.strftime('%Y-%m-%d %H:%M:%S')}: {no}, {thickness}, {diameter}, {hardness}, {Tanggal}, {tanggal_waktu_terformat}\n")
                                 Data.kirim_data(hardness, diameter, thickness, "N", "A20230626002", time_series=no)
@@ -282,7 +282,7 @@ if __name__ == "__main__":
         # Print or use the values as needed
         if (hardness != ""):
             #print(h_value, d_value, t_value, status, code_instrument )
-            with open("data_log.txt", "a") as file:
+            with open("data_log.xlsx", "a") as file:
                 file.write(f"{time.strftime('%Y-%m-%d %H:%M:%S')}: {Arbffr}\n")
                 file.write(f"{time.strftime('%Y-%m-%d %H:%M:%S')}: {time_series}, {thickness}, {diameter}, {hardness}, {tanggal_waktu_terformat}\n")
 

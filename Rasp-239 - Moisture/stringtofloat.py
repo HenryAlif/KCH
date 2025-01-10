@@ -17,12 +17,12 @@ class MoistureData(Base):
     id = Column(Integer, primary_key=True)
     Operator = Column(String)
     Batch = Column(String)
-    Limit_atas = Column(Float)   # Ubah ke Float
-    Limit_bawah = Column(Float)  # Ubah ke Float
-    Berat_awal = Column(Float)   # Ubah ke Float
-    Berat_kering = Column(Float) # Ubah ke Float
-    Moisture = Column(Float)     # Ubah ke Float
-    Result = Column(Float)       # Ubah ke Float
+    Limit_atas = Column(Float)   
+    Limit_bawah = Column(Float)  
+    Berat_awal = Column(Float)   
+    Berat_kering = Column(Float) 
+    Moisture = Column(Float)     
+    Result = Column(Float)       
     Status = Column(String)
     Date = Column(String)
 
@@ -71,7 +71,7 @@ def clean_numeric_value(value):
 def process_data(data):
     """Process the received data."""
     
-    db_url = "mysql+mysqlconnector://ems_saka:s4k4f4rmA@10.126.15.138:3306/ems_saka"  # Database URL harus disesuaikan
+    db_url = "mysql+mysqlconnector://user:passoword@10.126.15.xxx:port/ems_saka"
     engine = create_engine(db_url, pool_pre_ping=True)
     Session = sessionmaker(bind=engine)
     session = Session()
@@ -87,12 +87,12 @@ def process_data(data):
         Datab = MoistureData(
             Operator=Data_split[9],
             Batch=Data_split[46],
-            Limit_atas=float(clean_numeric_value(Data_split[35])),   # Konversi ke float
-            Limit_bawah=float(clean_numeric_value(Data_split[41])),  # Konversi ke float
-            Berat_awal=float(clean_numeric_value(Data_split[50])),   # Konversi ke float
-            Berat_kering=float(clean_numeric_value(Data_split[54])), # Konversi ke float
-            Moisture=float(clean_numeric_value(Data_split[56])),     # Konversi ke float
-            Result=float(clean_numeric_value(Data_split[58])),       # Konversi ke float
+            Limit_atas=float(clean_numeric_value(Data_split[35])),   
+            Limit_bawah=float(clean_numeric_value(Data_split[41])),  
+            Berat_awal=float(clean_numeric_value(Data_split[50])),   
+            Berat_kering=float(clean_numeric_value(Data_split[54])), 
+            Moisture=float(clean_numeric_value(Data_split[56])),     
+            Result=float(clean_numeric_value(Data_split[58])),       
             Status=Data_split[60],
             Date=Data_split[66]
     )
@@ -105,12 +105,12 @@ def process_data(data):
         Datab = MoistureData(
                 Operator=Data_split[9],
                 Batch=Data_split[45],
-                Limit_atas=float(clean_numeric_value(Data_split[35])),   # Konversi ke float
-                Limit_bawah=float(clean_numeric_value(Data_split[41])),  # Konversi ke float
-                Berat_awal=float(clean_numeric_value(Data_split[49])),   # Konversi ke float
-                Berat_kering=float(clean_numeric_value(Data_split[53])), # Konversi ke float
-                Moisture=float(clean_numeric_value(Data_split[55])),     # Konversi ke float
-                Result=float(clean_numeric_value(Data_split[57])),       # Konversi ke float
+                Limit_atas=float(clean_numeric_value(Data_split[35])),   
+                Limit_bawah=float(clean_numeric_value(Data_split[41])),  
+                Berat_awal=float(clean_numeric_value(Data_split[49])),   
+                Berat_kering=float(clean_numeric_value(Data_split[53])), 
+                Moisture=float(clean_numeric_value(Data_split[55])),     
+                Result=float(clean_numeric_value(Data_split[57])),       
                 Status=Data_split[59],
                 Date=Data_split[65]
     )
@@ -118,7 +118,6 @@ def process_data(data):
         print("Data parsing kurang 1")
         session.add(Datab)
         session.commit()
-
 
     else:
         print("Data tidak di parsing")

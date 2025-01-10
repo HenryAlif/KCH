@@ -1,0 +1,8 @@
+2025-01-08 15:33:38,178 [INFO] Serial connection established on COM3 with baudrate 9600 at 2025-01-08 15:33:38
+2025-01-08 15:33:40,179 [INFO] Serial connection established on COM3 with baudrate 9600 at 2025-01-08 15:33:38
+2025-01-08 15:33:41,445 [ERROR] Data CONVERSION: could not convert string to float: ':'
+2025-01-08 15:33:50,253 [ERROR] Data CONVERSION: could not convert string to float: ':'
+2025-01-08 15:33:56,154 [ERROR] Data CONVERSION: could not convert string to float: ':'
+2025-01-08 15:34:00,609 [ERROR] Data CONVERSION: could not convert string to float: ':'
+2025-01-08 15:34:13,898 [ERROR] Data CONVERSION: could not convert string to float: ':'
+2025-01-08 15:34:29,385 [ERROR] Data CONVERSION: could not convert string to float: ':'

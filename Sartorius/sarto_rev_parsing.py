@@ -125,8 +125,7 @@ def main():
     baudrate = 1200
     timeout = 1
 
-    ser = open_serial_port(usb_port, baud
-    rate, timeout)
+    ser = open_serial_port(usb_port, baudrate, timeout)
 
     try:
         read_and_process_data(ser, session, usb_port, baudrate, timeout)
