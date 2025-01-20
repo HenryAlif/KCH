@@ -50,12 +50,12 @@ class Data(Base):
     @classmethod
     def kirim_data(cls, h_value, d_value, t_value, status, code_instrument, time_series):
         data_baru = cls(
-                        h_value=h_value, 
-                        d_value=d_value, 
-                        t_value=t_value,
-                        status=status, 
-                        code_instrument=code_instrument, 
-                        time_series=time_series)
+            h_value=h_value, 
+            d_value=d_value, 
+            t_value=t_value,
+            status=status, 
+            code_instrument=code_instrument, 
+            time_series=time_series)
         session.add(data_baru)
         session.commit()
 
@@ -89,7 +89,7 @@ def initialize_serial():
     global serial_port, tanggal_waktu_terformat, last_error_message
     while True:
         try:
-            serial_port = serial.Serial(port="COM3", baudrate=9600, timeout=1)
+            serial_port = serial.Serial(port="COM12", baudrate=9600, timeout=1)
             serial_port.reset_input_buffer()
             print(f"Serial connection established. {tanggal_waktu_terformat}")
             logging.info(f"Serial connection established on {serial_port.port} with baudrate {serial_port.baudrate} at {tanggal_waktu_terformat}")

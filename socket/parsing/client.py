@@ -13,7 +13,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
 # Database setup
-DATABASE_URI = 'postgresql://users_pims_engineer:Engineer_2023@10.106.1.40/pims_prod'
+DATABASE_URI = 'mysql+mysqlconnector://root:s4k4f4rmA@10.126.15.138:3306/ems_saka'
 engine = create_engine(DATABASE_URI)
 Session = sessionmaker(bind=engine)
 session = Session()
@@ -69,7 +69,7 @@ def initialize_serial():
     global serial_port, tanggal_waktu_terformat, last_error_message
     while True:
         try:
-            serial_port = serial.Serial(port="COM12", baudrate=9600, timeout=1)
+            serial_port = serial.Serial(port="COM3", baudrate=9600, timeout=1)
             serial_port.reset_input_buffer()
             print(f"Serial connection established. {tanggal_waktu_terformat}")
             logging.info(f"Serial connection established on {serial_port.port} with baudrate {serial_port.baudrate} at {tanggal_waktu_terformat}")
@@ -99,7 +99,7 @@ class SerialReader:
         self.thread.start()
 
     def _read_thread(self):
-        global serial_port, bef, buffer, Arbffr, prevCount, tanggal_waktu_terformat, last_error_message
+        global serial_port, buffer, last_error_message
         while True:
             try:
                 if serial_port is None:
@@ -108,111 +108,15 @@ class SerialReader:
                 line = serial_port.readline().decode(encoding='UTF-8', errors='replace')
                 if line:
                     buffer += line
-                    if bef == 0:
-                        bef = 1
+                    if re.search(r'\n', buffer):
+                        entries = parse_data(buffer)
+                        for entry in entries:
+                            time_series, t_value, d_value, h_value = entry
+                            # Save to JSON format
+                            self.save_to_json(time_series, h_value, d_value, t_value)
+                            # Send data to server
+                            self.send_data_to_server(time_series, h_value, d_value, t_value, "", "")
                         buffer = ""
-                    else:
-                        bef = 1
-                else:
-                    if bef == 1:
-                        data = re.split(r"\s+|\n", buffer)
-                        if "Testing" in data:
-                            try:
-                                dataindex = data.index("Results")
-                                print('Results')
-                                print('data indek')
-                                batch = data[22]
-                                speed = data[24]
-                                Tanggal = data[28]
-                                Time = data[30]
-                                no = data[48]
-                                thickness = float(data[dataindex+4])
-                                diameter = float(data[dataindex+7])
-                                hardness = float(data[dataindex+10])
-                                Rev_thickness = data[38]
-                                Rev_diameter = data[41]
-                                Rev_hardness = data[44]
-                                count = int(no)
-                                Arbffr[prevCount].append(no)
-                                Arbffr[prevCount].append(batch)
-                                Arbffr[prevCount].append(speed)
-                                Arbffr[prevCount].append(Tanggal)
-                                Arbffr[prevCount].append(Time)
-                                Arbffr[prevCount].append(thickness)
-                                Arbffr[prevCount].append(diameter)
-                                Arbffr[prevCount].append(hardness)
-                                prevCount = count
-                                buffer = ""
-                                
-                                print('test')
-                                print(buffer)
-                                print('print buffer')
-                                print(Arbffr)
-                                print('print Arfb')
-                                print('test setelahnya')
-
-                                # Save to JSON format
-                                self.save_to_json(no, hardness, diameter, thickness, Tanggal, Time)
-                                
-                                # Send data to server
-                                self.send_data_to_server(no, hardness, diameter, thickness, Tanggal, Time)
-                    
-                            except (ValueError, IndexError) as conversion_error:
-                                error_message = f"Data CONVERSION: {conversion_error}"
-                                logging.error(error_message)
-                                print('test2')
-                                # Check if the error message is the same as the previous one
-                                if last_error_message != error_message:
-                                    last_error_message = error_message 
-                                
-                                bef = 0
-                                buffer = ""
-                                prevCount = 0
-                                count = 1
-                                data = ""
-                                Arbffr = [[]]
-                                continue 
-
-                        elif "No." in data and len(data) < 20:
-                            try:
-                                dataindex = data.index("mm")
-                                no = data[1]
-                                thickness = float(data[dataindex-1])
-                                diameter = float(data[dataindex+2])
-                                hardness = float(data[dataindex+5])
-                                count = int(no)
-                                Arbffr.append([])
-                                Arbffr[prevCount].append(no)
-                                Arbffr[prevCount].append(thickness)
-                                Arbffr[prevCount].append(diameter)
-                                Arbffr[prevCount].append(hardness)
-                                prevCount = count
-
-                                buffer = ""
-                                print(Arbffr)
-                                print('print arf kedua')
-                                # Save to JSON format
-                                self.save_to_json(no, hardness, diameter, thickness, "", "")
-                                
-                                # Send data to server
-                                self.send_data_to_server(no, hardness, diameter, thickness, "", "")
-                            except (ValueError, IndexError) as conversion_error:
-                                bef = 0
-                                buffer = ""
-                                prevCount = 0
-                                count = 1
-                                data = ""
-                                Arbffr = [[]]
-                                continue
-                        
-                        elif "Xm" in data or "Xmean" in data or "Released:" in data:
-                            bef = 0
-                            buffer = ""
-                            prevCount = 0
-                            count = 1
-                            data = ""
-                            time.sleep(5)
-                            Arbffr = [[]]
             except serial.SerialException as e:
                 error_message = f"Serial exception: {e}"
                 logging.error(error_message)
@@ -223,7 +127,6 @@ class SerialReader:
                 serial_port = None
                 time.sleep(5)
 
-    print(buffer)
     def save_to_json(self, no, hardness, diameter, thickness):
         # Prepare data
         data = {
@@ -311,6 +214,23 @@ class SerialReader:
         # Append the log entry to the JSON log file
         append_log(log_filename, data_object)
 
+def parse_data(raw_data):
+    raw_data = re.sub(r"-{2,}", "", raw_data).strip()
+    lines = [line.strip() for line in raw_data.split("\n") if line.strip()]
+
+    # Extract entries
+    entries = []
+    for line in lines:
+        if line.startswith("No."):
+            match = re.match(r'No\.\s*(\d+)\s*:\s*([\d.]+) mm\s*:\s*([\d.]+) mm\s*:\s*([\d.]+) kp', line)
+            if match:
+                time_series = int(match.group(1))
+                t_value = float(match.group(2))
+                d_value = float(match.group(3))
+                h_value = float(match.group(4))
+                entries.append((time_series, t_value, d_value, h_value))
+    return entries
+
 def load_id_counter(filename):
     """Load the ID counter from a file."""
     if os.path.exists(filename):
@@ -336,7 +256,7 @@ def append_log(log_filename, data_object):
         "time_insert": data_object['time_insert'],
         "created_date": data_object['created_date']
     }
-    print(append_log)
+    print(log_entry)
 
     # Load existing log data
     if os.path.exists(log_filename):
@@ -358,4 +278,3 @@ if __name__ == "__main__":
     while True:
         time.sleep(1)
         print('print last')
-    

@@ -1,8 +1,24 @@
-2025-01-10 13:39:25,558 [ERROR] Serial FAILED: could not open port 'COM3': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
-2025-01-10 13:39:30,560 [ERROR] Serial FAILED: could not open port 'COM3': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
-2025-01-10 13:39:35,561 [ERROR] Serial FAILED: could not open port 'COM3': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
-2025-01-10 13:39:40,563 [ERROR] Serial FAILED: could not open port 'COM3': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
-2025-01-10 13:39:45,599 [ERROR] Serial FAILED: could not open port 'COM3': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
-2025-01-10 13:39:50,679 [INFO] Serial connection established on COM3 with baudrate 9600 at 2025-01-10 13:39:25
-2025-01-10 13:39:52,680 [INFO] Serial connection established on COM3 with baudrate 9600 at 2025-01-10 13:39:25
-2025-01-10 13:39:53,946 [ERROR] Data CONVERSION: could not convert string to float: ':'
+2025-01-15 13:30:43,302 [INFO] Serial connection established on COM3 with baudrate 9600.
+2025-01-15 13:30:47,623 [ERROR] Unexpected error: not enough values to unpack (expected 4, got 1)
+2025-01-15 13:35:36,275 [INFO] Serial connection established on COM3 with baudrate 9600.
+2025-01-15 13:39:26,525 [INFO] Serial connection established on COM3 with baudrate 9600.
+2025-01-15 13:42:54,824 [INFO] Serial connection established on COM3 with baudrate 9600.
+2025-01-15 13:48:37,120 [INFO] Serial connection established on COM3 with baudrate 9600.
+2025-01-15 13:59:30,163 [INFO] Serial connection established on COM3 with baudrate 9600.
+2025-01-15 14:01:05,431 [INFO] Serial connection established on COM3 with baudrate 9600.
+2025-01-15 14:02:17,732 [INFO] Serial connection established on COM3 with baudrate 9600.
+2025-01-15 14:03:38,969 [INFO] Serial connection established on COM3 with baudrate 9600.
+2025-01-15 14:08:41,838 [INFO] Serial connection established on COM3 with baudrate 9600.
+2025-01-15 14:10:20,440 [INFO] Serial connection established on COM3 with baudrate 9600.
+2025-01-15 14:17:14,415 [INFO] Serial connection established on COM3 with baudrate 9600.
+2025-01-15 14:19:18,664 [INFO] Serial connection established on COM3 with baudrate 9600.
+2025-01-15 14:22:02,612 [INFO] Serial connection established on COM3 with baudrate 9600.
+2025-01-15 14:23:37,535 [INFO] Serial connection established on COM3 with baudrate 9600.
+2025-01-15 14:28:04,968 [INFO] Serial connection established on COM3 with baudrate 9600.
+2025-01-15 14:30:33,988 [INFO] Serial connection established on COM3 with baudrate 9600.
+2025-01-15 14:31:00,038 [INFO] Serial connection established on COM3 with baudrate 9600.
+2025-01-15 14:31:21,034 [INFO] Serial connection established on COM3 with baudrate 9600.
+2025-01-15 14:31:43,763 [ERROR] Serial exception: ClearCommError failed (PermissionError(13, 'The device does not recognize the command.', None, 22))
+2025-01-15 14:33:01,015 [ERROR] Serial exception: could not open port 'COM3': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+2025-01-15 14:33:14,470 [INFO] Serial connection established on COM3 with baudrate 9600.
+2025-01-15 14:38:15,533 [INFO] Serial connection established on COM3 with baudrate 9600.

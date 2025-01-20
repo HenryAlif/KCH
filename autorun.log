@@ -1,27 +1,135 @@
-2025-01-10 13:36:01,342 - INFO - Starting Server...
-2025-01-10 13:36:01,342 - INFO - Starting Client...
-2025-01-10 13:36:01,377 - ERROR - Client [ERROR]: python: can't open file 'D:\\Source Code\\Magang Kalbe\\Raspberry Pi\\clientdb.py': [Errno 2] No such file or directory
-2025-01-10 13:36:01,378 - ERROR - Server [ERROR]: python: can't open file 'D:\\Source Code\\Magang Kalbe\\Raspberry Pi\\masterserver.py': [Errno 2] No such file or directory
-2025-01-10 13:37:46,946 - INFO - Starting Server...
-2025-01-10 13:37:46,947 - INFO - Starting Client...
-2025-01-10 13:37:46,996 - ERROR - Client [ERROR]: python: can't open file 'D:\\Source Code\\Magang Kalbe\\Raspberry Pi\\tryclientdb.py': [Errno 2] No such file or directory
-2025-01-10 13:37:46,996 - ERROR - Server [ERROR]: python: can't open file 'D:\\Source Code\\Magang Kalbe\\Raspberry Pi\\tryserver.py': [Errno 2] No such file or directory
-2025-01-10 13:39:02,893 - INFO - Starting Server...
-2025-01-10 13:39:02,894 - INFO - Starting Client...
-2025-01-10 13:39:02,939 - ERROR - Client [ERROR]: python: can't open file 'D:\\Source Code\\Magang Kalbe\\Raspberry Pi\\tryclientdb.py': [Errno 2] No such file or directory
-2025-01-10 13:39:02,947 - ERROR - Server [ERROR]: python: can't open file 'D:\\Source Code\\Magang Kalbe\\Raspberry Pi\\tryserver.py': [Errno 2] No such file or directory
-2025-01-10 13:39:23,553 - INFO - Starting Server...
-2025-01-10 13:39:23,554 - INFO - Starting Client...
-2025-01-10 13:40:34,054 - INFO - Client: Serial FAILED: could not open port 'COM3': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
-2025-01-10 13:40:34,054 - INFO - Client: Serial FAILED: could not open port 'COM3': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
-2025-01-10 13:40:34,054 - INFO - Client: Serial FAILED: could not open port 'COM3': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
-2025-01-10 13:40:34,054 - INFO - Client: Serial FAILED: could not open port 'COM3': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
-2025-01-10 13:40:34,054 - INFO - Client: Serial FAILED: could not open port 'COM3': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
-2025-01-10 13:40:34,054 - INFO - Client: Serial connection established. 2025-01-10 13:39:25
-2025-01-10 13:40:34,055 - INFO - Client: Data sent: {'id': 0, 'h_value': 11.6, 'd_value': 18.13, 't_value': 5.7, 'status': 'N', 'code_instrument': 'A20230626002', 'time_series': '3', 'time_insert': '13:40:00', 'created_date': '2025-01-10'}
-2025-01-10 13:40:34,217 - ERROR - Client [ERROR]: D:\Source Code\Magang Kalbe\Raspberry Pi\socket\tryclientdb.py:20: MovedIn20Warning: The ``declarative_base()`` function is now available as sqlalchemy.orm.declarative_base(). (deprecated since: 2.0) (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)
-2025-01-10 13:40:34,217 - ERROR - Client [ERROR]: Base = declarative_base()
-2025-01-10 13:40:34,217 - ERROR - Client [ERROR]: Traceback (most recent call last):
-2025-01-10 13:40:34,217 - ERROR - Client [ERROR]: File "D:\Source Code\Magang Kalbe\Raspberry Pi\socket\tryclientdb.py", line 347, in <module>
-2025-01-10 13:40:34,217 - ERROR - Client [ERROR]: time.sleep(1)
-2025-01-10 13:40:34,217 - ERROR - Client [ERROR]: KeyboardInterrupt
+2025-01-20 09:16:27,331 - INFO - Starting Server...
+2025-01-20 09:16:27,332 - INFO - Starting Client...
+2025-01-20 09:16:27,332 - INFO - Starting Query...
+2025-01-20 09:18:09,635 - INFO - Client: Membuka koneksi ke COM3 dengan baud rate 9600
+2025-01-20 09:18:09,635 - INFO - Client: Data diterima: ----------------------------------------
+2025-01-20 09:18:09,636 - INFO - Client: Data diterima: Tablet Testing System PTB311E V01.11 E
+2025-01-20 09:18:09,636 - INFO - Client: Data diterima: Instrument Serial No. 025815
+2025-01-20 09:18:09,636 - INFO - Client: Data diterima: ----------------------------------------
+2025-01-20 09:18:09,636 - INFO - Client: Data diterima: Product :
+2025-01-20 09:18:09,636 - INFO - Client: Data diterima: Job     :
+2025-01-20 09:18:09,645 - INFO - Client: Data diterima: Method  :
+2025-01-20 09:18:09,645 - INFO - Client: Data diterima: Operator:
+2025-01-20 09:18:09,645 - INFO - Client: Data diterima: Comment :
+2025-01-20 09:18:09,645 - INFO - Client: Data diterima: Batch   :        45355   Spd:  20.0 N/sec   Date    : 07.01.25    Time: 08:35:40
+2025-01-20 09:18:09,645 - INFO - Client: Data diterima: ----------------------------------------
+2025-01-20 09:18:09,645 - INFO - Client: Data diterima: :Thickness : Diameter : Hardness
+2025-01-20 09:18:09,645 - INFO - Client: Data diterima: Ref.V.  :  5.40 mm : 18.00 mm :   8.0 kp
+2025-01-20 09:18:09,645 - INFO - Client: Data diterima: --------------- Results ----------------
+2025-01-20 09:18:09,645 - INFO - Client: Data diterima: No.   1 :  5.54 mm : 18.17 mm :  11.6 kp
+2025-01-20 09:18:09,645 - INFO - Client: Data disimpan ke database: Tablet Testing System PTB311E V01.11 E
+2025-01-20 09:18:09,645 - INFO - Client: Instrument Serial No. 025815
+2025-01-20 09:18:09,645 - INFO - Client: ----------------------------------------
+2025-01-20 09:18:09,645 - INFO - Client: Product :
+2025-01-20 09:18:09,645 - INFO - Client: Job     :
+2025-01-20 09:18:09,646 - INFO - Client: Method  :
+2025-01-20 09:18:09,646 - INFO - Client: Operator:
+2025-01-20 09:18:09,646 - INFO - Client: Comment :
+2025-01-20 09:18:09,646 - INFO - Client: Batch   :        45355   Spd:  20.0 N/sec   Date    : 07.01.25    Time: 08:35:40
+2025-01-20 09:18:09,646 - INFO - Client: ----------------------------------------
+2025-01-20 09:18:09,646 - INFO - Client: :Thickness : Diameter : Hardness
+2025-01-20 09:18:09,646 - INFO - Client: Ref.V.  :  5.40 mm : 18.00 mm :   8.0 kp
+2025-01-20 09:18:09,646 - INFO - Client: --------------- Results ----------------
+2025-01-20 09:18:09,646 - INFO - Client: No.   1 :  5.54 mm : 18.17 mm :  11.6 kp
+2025-01-20 09:18:09,646 - INFO - Client: Data dikirim ke server: {"h_value": "11.6", "d_value": "18.17", "t_value": "5.54", "status": "N", "code_instrument": "A20230626002", "time_series": "1", "time_insert": "09:16:30", "created_date": "2025-01-20"}
+2025-01-20 09:18:09,646 - INFO - Client: Data diterima: No.   2 :  5.55 mm : 18.24 mm :  10.6 kp
+2025-01-20 09:18:09,646 - INFO - Client: Data disimpan ke database: Tablet Testing System PTB311E V01.11 E
+2025-01-20 09:18:09,646 - INFO - Client: Instrument Serial No. 025815
+2025-01-20 09:18:09,646 - INFO - Client: ----------------------------------------
+2025-01-20 09:18:09,646 - INFO - Client: Product :
+2025-01-20 09:18:09,646 - INFO - Client: Job     :
+2025-01-20 09:18:09,646 - INFO - Client: Method  :
+2025-01-20 09:18:09,646 - INFO - Client: Operator:
+2025-01-20 09:18:09,646 - INFO - Client: Comment :
+2025-01-20 09:18:09,646 - INFO - Client: Batch   :        45355   Spd:  20.0 N/sec   Date    : 07.01.25    Time: 08:35:40
+2025-01-20 09:18:09,646 - INFO - Client: ----------------------------------------
+2025-01-20 09:18:09,646 - INFO - Client: :Thickness : Diameter : Hardness
+2025-01-20 09:18:09,646 - INFO - Client: Ref.V.  :  5.40 mm : 18.00 mm :   8.0 kp
+2025-01-20 09:18:09,646 - INFO - Client: --------------- Results ----------------
+2025-01-20 09:18:09,646 - INFO - Client: No.   1 :  5.54 mm : 18.17 mm :  11.6 kp
+2025-01-20 09:18:09,646 - INFO - Client: No.   2 :  5.55 mm : 18.24 mm :  10.6 kp
+2025-01-20 09:18:09,646 - INFO - Client: Data dikirim ke server: {"h_value": "10.6", "d_value": "18.24", "t_value": "5.55", "status": "N", "code_instrument": "A20230626002", "time_series": "2", "time_insert": "09:16:33", "created_date": "2025-01-20"}
+2025-01-20 09:18:09,646 - INFO - Client: Data diterima: No.   3 :  5.70 mm : 18.13 mm :  11.6 kp
+2025-01-20 09:18:09,646 - INFO - Client: Data disimpan ke database: Tablet Testing System PTB311E V01.11 E
+2025-01-20 09:18:09,646 - INFO - Client: Instrument Serial No. 025815
+2025-01-20 09:18:09,646 - INFO - Client: ----------------------------------------
+2025-01-20 09:18:09,646 - INFO - Client: Product :
+2025-01-20 09:18:09,647 - INFO - Client: Job     :
+2025-01-20 09:18:09,647 - INFO - Client: Method  :
+2025-01-20 09:18:09,647 - INFO - Client: Operator:
+2025-01-20 09:18:09,647 - INFO - Client: Comment :
+2025-01-20 09:18:09,647 - INFO - Client: Batch   :        45355   Spd:  20.0 N/sec   Date    : 07.01.25    Time: 08:35:40
+2025-01-20 09:18:09,647 - INFO - Client: ----------------------------------------
+2025-01-20 09:18:09,647 - INFO - Client: :Thickness : Diameter : Hardness
+2025-01-20 09:18:09,647 - INFO - Client: Ref.V.  :  5.40 mm : 18.00 mm :   8.0 kp
+2025-01-20 09:18:09,647 - INFO - Client: --------------- Results ----------------
+2025-01-20 09:18:09,647 - INFO - Client: No.   1 :  5.54 mm : 18.17 mm :  11.6 kp
+2025-01-20 09:18:09,647 - INFO - Client: No.   2 :  5.55 mm : 18.24 mm :  10.6 kp
+2025-01-20 09:18:09,647 - INFO - Client: No.   3 :  5.70 mm : 18.13 mm :  11.6 kp
+2025-01-20 09:18:09,647 - INFO - Client: Data dikirim ke server: {"h_value": "11.6", "d_value": "18.13", "t_value": "5.70", "status": "N", "code_instrument": "A20230626002", "time_series": "3", "time_insert": "09:16:36", "created_date": "2025-01-20"}
+2025-01-20 09:18:09,647 - INFO - Client: Data diterima: No.   4 :  5.57 mm : 18.17 mm :  11.7 kp
+2025-01-20 09:18:09,647 - INFO - Client: Data disimpan ke database: Tablet Testing System PTB311E V01.11 E
+2025-01-20 09:18:09,647 - INFO - Client: Instrument Serial No. 025815
+2025-01-20 09:18:09,647 - INFO - Client: ----------------------------------------
+2025-01-20 09:18:09,647 - INFO - Client: Product :
+2025-01-20 09:18:09,647 - INFO - Client: Job     :
+2025-01-20 09:18:09,647 - INFO - Client: Method  :
+2025-01-20 09:18:09,647 - INFO - Client: Operator:
+2025-01-20 09:18:09,647 - INFO - Client: Comment :
+2025-01-20 09:18:09,647 - INFO - Client: Batch   :        45355   Spd:  20.0 N/sec   Date    : 07.01.25    Time: 08:35:40
+2025-01-20 09:18:09,647 - INFO - Client: ----------------------------------------
+2025-01-20 09:18:09,647 - INFO - Client: :Thickness : Diameter : Hardness
+2025-01-20 09:18:09,647 - INFO - Client: Ref.V.  :  5.40 mm : 18.00 mm :   8.0 kp
+2025-01-20 09:18:09,647 - INFO - Client: --------------- Results ----------------
+2025-01-20 09:18:09,647 - INFO - Client: No.   1 :  5.54 mm : 18.17 mm :  11.6 kp
+2025-01-20 09:18:09,647 - INFO - Client: No.   2 :  5.55 mm : 18.24 mm :  10.6 kp
+2025-01-20 09:18:09,647 - INFO - Client: No.   3 :  5.70 mm : 18.13 mm :  11.6 kp
+2025-01-20 09:18:09,647 - INFO - Client: No.   4 :  5.57 mm : 18.17 mm :  11.7 kp
+2025-01-20 09:18:09,647 - INFO - Client: Data dikirim ke server: {"h_value": "11.7", "d_value": "18.17", "t_value": "5.57", "status": "N", "code_instrument": "A20230626002", "time_series": "4", "time_insert": "09:16:39", "created_date": "2025-01-20"}
+2025-01-20 09:18:09,647 - INFO - Client: Data diterima: No.   5 :  5.63 mm : 18.19 mm :  12.0 kp
+2025-01-20 09:18:09,647 - INFO - Client: Data disimpan ke database: Tablet Testing System PTB311E V01.11 E
+2025-01-20 09:18:09,647 - INFO - Client: Instrument Serial No. 025815
+2025-01-20 09:18:09,647 - INFO - Client: ----------------------------------------
+2025-01-20 09:18:09,648 - INFO - Client: Product :
+2025-01-20 09:18:09,648 - INFO - Client: Job     :
+2025-01-20 09:18:09,648 - INFO - Client: Method  :
+2025-01-20 09:18:09,648 - INFO - Client: Operator:
+2025-01-20 09:18:09,648 - INFO - Client: Comment :
+2025-01-20 09:18:09,648 - INFO - Client: Batch   :        45355   Spd:  20.0 N/sec   Date    : 07.01.25    Time: 08:35:40
+2025-01-20 09:18:09,648 - INFO - Client: ----------------------------------------
+2025-01-20 09:18:09,648 - INFO - Client: :Thickness : Diameter : Hardness
+2025-01-20 09:18:09,648 - INFO - Client: Ref.V.  :  5.40 mm : 18.00 mm :   8.0 kp
+2025-01-20 09:18:09,648 - INFO - Client: --------------- Results ----------------
+2025-01-20 09:18:09,648 - INFO - Client: No.   1 :  5.54 mm : 18.17 mm :  11.6 kp
+2025-01-20 09:18:09,648 - INFO - Client: No.   2 :  5.55 mm : 18.24 mm :  10.6 kp
+2025-01-20 09:18:09,648 - INFO - Client: No.   3 :  5.70 mm : 18.13 mm :  11.6 kp
+2025-01-20 09:18:09,648 - INFO - Client: No.   4 :  5.57 mm : 18.17 mm :  11.7 kp
+2025-01-20 09:18:09,648 - INFO - Client: No.   5 :  5.63 mm : 18.19 mm :  12.0 kp
+2025-01-20 09:18:09,648 - INFO - Client: Data dikirim ke server: {"h_value": "12.0", "d_value": "18.19", "t_value": "5.63", "status": "N", "code_instrument": "A20230626002", "time_series": "5", "time_insert": "09:16:42", "created_date": "2025-01-20"}
+2025-01-20 09:18:09,648 - INFO - Client: Data diterima: ----------------------------------------
+2025-01-20 09:18:09,648 - INFO - Client: Data diterima: Statistics
+2025-01-20 09:18:09,648 - INFO - Client: Data diterima: ----------------------------------------
+2025-01-20 09:18:09,648 - INFO - Client: Data diterima: :Thickness : Diameter : Hardness
+2025-01-20 09:18:09,648 - INFO - Client: Data diterima: Xmax    :  5.70 mm : 18.24 mm :  12.0 kp
+2025-01-20 09:18:09,648 - INFO - Client: Data diterima: Xmin    :  5.54 mm : 18.13 mm :  10.6 kp
+2025-01-20 09:18:09,648 - INFO - Client: Data diterima: Xdif    :  0.16 mm :  0.11 mm :   1.4 kp
+2025-01-20 09:18:09,648 - INFO - Client: Data diterima: Xmean   :  5.60 mm : 18.18 mm :  11.5 kp
+2025-01-20 09:18:09,648 - INFO - Client: Data diterima: Xabs    :  0.07 mm :  0.04 mm :   0.5 kp
+2025-01-20 09:18:09,648 - INFO - Client: Data diterima: Xrel    :  1.19 %  :  0.22 %  :  4.60 %
+2025-01-20 09:18:09,648 - INFO - Client: Data diterima: Xm Abs. :  0.20 mm :  0.18 mm :   3.5 kp
+2025-01-20 09:18:09,648 - INFO - Client: Data diterima: Xm Rel. :  3.67 %  :  1.00 %  : 43.75 %
+2025-01-20 09:18:09,648 - INFO - Client: Data diterima: ----------------------------------------
+2025-01-20 09:18:09,648 - INFO - Client: Data diterima: Operator: --------------  --------------
+2025-01-20 09:18:09,648 - INFO - Client: Data diterima: Released: --------------  --------------
+2025-01-20 09:18:09,649 - INFO - Client: Data diterima: Name/Signature   Date / Time
+2025-01-20 09:18:09,649 - INFO - Client: Data diterima: ----------------------------------------
+2025-01-20 09:18:09,649 - INFO - Client: Data diterima: Printed:  Date 07.01.25  Time 08:35:40
+2025-01-20 09:18:09,706 - ERROR - Client [ERROR]: D:\Source Code\Magang Kalbe\Raspberry Pi\easyness\16jan\client.py:14: MovedIn20Warning: The ``declarative_base()`` function is now available as sqlalchemy.orm.declarative_base(). (deprecated since: 2.0) (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)
+2025-01-20 09:18:09,706 - ERROR - Client [ERROR]: Base = declarative_base()
+2025-01-20 09:18:09,706 - ERROR - Client [ERROR]: Traceback (most recent call last):
+2025-01-20 09:18:09,706 - ERROR - Client [ERROR]: File "D:\Source Code\Magang Kalbe\Raspberry Pi\easyness\16jan\client.py", line 141, in <module>
+2025-01-20 09:18:09,706 - ERROR - Client [ERROR]: time.sleep(1)
+2025-01-20 09:18:09,706 - ERROR - Client [ERROR]: KeyboardInterrupt
+2025-01-20 09:25:14,423 - INFO - Starting Server...
+2025-01-20 09:25:14,423 - INFO - Starting Client...
+2025-01-20 09:25:14,423 - INFO - Starting Query...

@@ -10,7 +10,8 @@ from sqlalchemy.ext.declarative import declarative_base
 from datetime import datetime
 
 # Set up logging
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s', 
+                    handlers=[logging.FileHandler("serial_data.txt"), logging.StreamHandler()])
 error_log = set()
 
 # Define the database model
@@ -18,7 +19,6 @@ Base = declarative_base()
 
 class Data(Base):
     __tablename__ = 'sakaplant_prod_ipc_staging'
-
     id_setup = Column(Integer, primary_key=True, autoincrement=True)
     h_value = Column(Float)
     d_value = Column(Float)
@@ -28,7 +28,7 @@ class Data(Base):
     time_series = Column(Integer)
 
 # Database setup
-DATABASE_URL = 'mysql+mysqlconnector://root:s4k4f4rmA@10.126.15.138:3306/ems_saka'
+DATABASE_URL = "postgresql://users_pims_engineer:Engineer_2023@10.106.1.40/pims_prod"
 engine = create_engine(DATABASE_URL)
 Base.metadata.create_all(engine)
 Session = sessionmaker(bind=engine)
@@ -74,6 +74,10 @@ def log_serial_data(data):
     }
     logging.info(f"{current_time.strftime('%Y-%m-%d %H:%M:%S')}: {log_entry}")
 
+    # Log to local file in the desired format
+    with open("local_serial_data_log.txt", "a") as f:
+        f.write(f"{current_time.strftime('%Y-%m-%d %H:%M:%S')}: {log_entry}\n")
+
 def read_from_serial():
     ser = serial.Serial(SERIAL_PORT, BAUD_RATE, timeout=1)
     while True:
@@ -85,11 +89,12 @@ def read_from_serial():
                 for entry in parsed_entries:
                     time_series, t_value, d_value, h_value = entry
                     data_entry = Data(
+                        # id_setup=time_series,
                         h_value=h_value,
                         d_value=d_value,
                         t_value=t_value,
-                        status='OK',
-                        code_instrument='025815',  # Example code instrument
+                        status='N',
+                        code_instrument='A20230626002',  # Example code instrument
                         time_series=time_series
                     )
                     session.add(data_entry)

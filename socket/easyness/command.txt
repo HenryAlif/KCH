@@ -1,3 +1,7 @@
+saya memiliki program python untuk melakukan parsing data dari serial read dan dikirim ke server dengan metode socket
+program ini sudah berfungsi dengan baik, akan tetapi saya minta anda untuk ubah sedikit logika dari program ini
+
+berikut adalah program awal nya
 import serial
 import threading
 import re
@@ -359,3 +363,30 @@ if __name__ == "__main__":
         time.sleep(1)
         print('print last')
     
+untuk data yang disimpan ke database adalah
+    __tablename__ = 'raw_data_table'
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    raw_data = Column(Text, nullable=False)
+    timestamp = Column(DateTime, default=datetime.utcnow)
+
+untuk menangkap raw_data nya dengan metode
+if "Tablet Testing System PTB311E V01.11 E" in data:
+                    is_recording = True  # Mulai merekam data
+                    buffer = data + "\n"  # Reset buffer dan tambahkan baris pertama
+
+                elif is_recording:
+                    buffer += data + "\n"  # Tambahkan data ke buffer
+
+                    # Jika mendeteksi baris dengan "No." dan "kp"
+                    if "No." in data and "kp" in data:
+                        save_to_database(buffer.strip())  # Simpan buffer ke database
+
+
+namun untuk logika parsing data di program bawaan, itu tetap digunakan
+jadi, data yang telah diparsing, akan dikirimkan ke server untuk diolah lagi
+
+saat ini, buatkan program client ini dengan sesuai dulu aja
+namun untuk logging data ke json, dan id_Counter jangan anda ubah fungsinya
+
+buat programnya agar bisa langsung digunakan untuk bekerja
