@@ -121,6 +121,8 @@ def send_to_server(data):
             message = json.dumps(data)
             sock.sendall(message.encode('utf-8'))
             print(f"Data dikirim ke server: {message}")
+            with open("log_client.txt", "a") as file:
+                file.write(f"{time.strftime('%Y-%m-%d %H:%M:%S')}: {data}\n")
 
             sock.close()
             break  # Keluar dari loop jika berhasil mengirim data

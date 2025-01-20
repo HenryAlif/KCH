@@ -1,5 +1,6 @@
 import socket
 import json
+import time
 from sqlalchemy import create_engine, Column, Integer, String, Float, Date, Time
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
@@ -45,6 +46,8 @@ def save_to_database(data):
         session.add(new_data)
         session.commit()
         print(f"Data disimpan ke database: {data}")
+        with open("log_servertrigger.txt", "a") as file:
+            file.write(f"{time.strftime('%Y-%m-%d %H:%M:%S')}: {data}\n")
         send_status(data)  # Kirim data yang disimpan ke client
     except Exception as e:
         session.rollback()

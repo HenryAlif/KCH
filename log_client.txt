@@ -1,0 +1,5 @@
+2025-01-20 12:44:40: {'h_value': '11.6', 'd_value': '18.17', 't_value': '5.54', 'status': 'N', 'code_instrument': 'A20230626002', 'time_series': '1', 'time_insert': '12:44:40', 'created_date': '2025-01-20'}
+2025-01-20 12:44:43: {'h_value': '10.6', 'd_value': '18.24', 't_value': '5.55', 'status': 'N', 'code_instrument': 'A20230626002', 'time_series': '2', 'time_insert': '12:44:43', 'created_date': '2025-01-20'}
+2025-01-20 12:44:46: {'h_value': '11.6', 'd_value': '18.13', 't_value': '5.70', 'status': 'N', 'code_instrument': 'A20230626002', 'time_series': '3', 'time_insert': '12:44:46', 'created_date': '2025-01-20'}
+2025-01-20 12:44:49: {'h_value': '11.7', 'd_value': '18.17', 't_value': '5.57', 'status': 'N', 'code_instrument': 'A20230626002', 'time_series': '4', 'time_insert': '12:44:49', 'created_date': '2025-01-20'}
+2025-01-20 12:44:52: {'h_value': '12.0', 'd_value': '18.19', 't_value': '5.63', 'status': 'N', 'code_instrument': 'A20230626002', 'time_series': '5', 'time_insert': '12:44:52', 'created_date': '2025-01-20'}

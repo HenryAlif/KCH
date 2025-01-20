@@ -1,5 +1,7 @@
 import socket
+import logging
 import json
+import time
 from sqlalchemy import create_engine, Column, Integer, String, Float
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
@@ -41,6 +43,9 @@ def save_to_database(data):
         session.add(new_data)
         session.commit()
         print(f"Data disimpan ke database: {data}")
+        with open("log_querydatabase.txt", "a") as file:
+            file.write(f"{time.strftime('%Y-%m-%d %H:%M:%S')}: {data}\n")
+        
     except Exception as e:
         session.rollback()
         print(f"Gagal menyimpan data: {e}")
