@@ -1,0 +1,41 @@
+2025-01-22 05:57:01: 
+-MOISTURE DETERMINATION-
+METTLER TOLEDO  Halogen 
+MoistureAnalyzer  Type               
+HX204  SNR(Drying Unit)  
+C118698782  SNR(Terminal) 
+C118698782  
+User Name            HPA
+Company  PT . SAKA FARMA  
+Department      PRODUKSI  
+Method Name  MXG FLU 06-12  
+Drying Prog     Standard  
+Drying Temp    105 øC  
+Switch Off  3(1mg/50s)  
+SOC Delay          OFF  
+Display Mode         %MC  
+Start Weight   5.000 g  
+Start Weight Tol   5 %  
+Weigh-in Aid      Active  
+Control Limits        ON  
+T2+ :         2.80 %MC  
+T1+ :              OFF  
+T1- :              OFF  
+T2- :         1.90 %MC 
+ID1: SAMPLE NAME  
+MIXAGRIP FLU KAPLET  
+ID2: BATCH/LOT 
+NO.  STMXGF51454-2  
+Inclinometer  Balance 
+is levelled  
+Start Weight   5.002 g  
+Total time      2:36 min  
+Dry Weight     4.907 g  
+Moisture Content  0.095 g  
+End Result      1.90 %MC  
+Meas. Status      Passed  
+Signature:  ........................  
+Signature:  ........................  
+Measurement end  
+22.01.2025 05:54  
+---------- END ---------
