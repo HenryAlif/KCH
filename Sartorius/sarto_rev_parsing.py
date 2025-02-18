@@ -1,7 +1,7 @@
 import serial
 import logging
 import re
-from sqlalchemy import create_engine, Column, Float, Integer, String
+from sqlalchemy import create_engine, Column, Float, Integer, String, func, Date, Time
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
@@ -12,19 +12,12 @@ logging.basicConfig(filename="sartorius_serial_log.txt", level=logging.INFO, for
 Base = declarative_base()
 
 class ScalesData(Base):
-    __tablename__ = "Sartorius_Scales"
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    date = Column(String)
-    time = Column(String)
-    mod = Column(String)
-    ser_no = Column(String)
-    APC = Column(String)
-    BAC = Column(String)
-    l_id = Column(String)
-    weight = Column(Float)
-    unit = Column(String)
-    trial_no = Column(Integer)
-    operator = Column(String)
+    __tablename__ = "sakaplant_prod_ipc_scale_staging"
+    id_setup = Column(Integer, primary_key=True, autoincrement=True)
+    scale_weight = Column(Float)
+    created_date = Column(Date, default=func.current_date())
+    created_time = Column(Time, default=func.current_time())
+    instrument_code = Column(String, default='0039304643')
 
 # Open the serial port
 def open_serial_port(port, baudrate=1200, timeout=1):
@@ -74,17 +67,7 @@ def process_data(data, session):
 
         for weight, unit in weight_entries:
             new_entry = ScalesData(
-                date=date,
-                time=time,
-                mod=mod,
-                ser_no=ser_no,
-                APC=APC,
-                BAC=BAC,
-                l_id=l_id,
-                weight=float(weight),
-                unit=unit,
-                trial_no=trial_no,
-                operator=operator
+                scale_weight=float(weight)
             )
             session.add(new_entry)
             trial_no += 1

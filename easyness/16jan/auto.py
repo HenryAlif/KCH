@@ -54,7 +54,7 @@ if __name__ == "__main__":
     )
     client_thread = threading.Thread(
         target=run_program, 
-        args=("Client", ["python", "D:\\Source Code\\Magang Kalbe\\Raspberry Pi\\easyness\\16jan\\client.py"])
+        args=("Client", ["python", "D:\\Source Code\\Magang Kalbe\\Raspberry Pi\\easyness\\16jan\\clientrev.py"])
     )
     query_thread = threading.Thread(
         target=run_program, 

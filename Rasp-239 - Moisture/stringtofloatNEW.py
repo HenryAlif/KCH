@@ -3,7 +3,7 @@ import serial
 import time
 import logging
 import sqlalchemy
-from sqlalchemy import create_engine, Column, Float, Integer, Date, Time, String
+from sqlalchemy import create_engine, Column, Float, Integer, Date, Time, String, func
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 from datetime import datetime

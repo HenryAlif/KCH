@@ -1,0 +1,41 @@
+void setup() {
+  // Inisialisasi komunikasi serial dengan baud rate 9600
+  Serial.begin(9600); 
+}
+
+void loop() {
+  // Header data
+Serial.println("---------------------------------------- Tablet Testing System PTB311E V01.11 E");
+Serial.println("Instrument Serial No. 025815");
+Serial.println("----------------------------------------Product :");
+delay(5000); 
+Serial.println("Job     :");
+Serial.println("Method  :");
+Serial.println("Operator:");
+Serial.println("Comment :");
+delay(5000); 
+Serial.println("Batch   :        51451 Spd:  20.0 mm/minDate    : 23.01.25    Time: ");
+delay(8000); 
+Serial.println("----------------------------------------        :Thickness : Diameter : HardnessRef.V.  :  5.40 mm : 18.00 mm :   8.0 kp--------------- Results ----------------No.   1 :  5.57 mm : 18.21 mm :  12.2 kp");
+delay(5000); 
+Serial.println("No.   2 :  5.57 mm : 18.19 mm :  12.1 kp");
+delay(5000); 
+Serial.println("No.   3 :  5.63 mm : 18.21 mm :  13.8 kp");
+delay(5000); 
+Serial.println("No.   4 :  5.56 mm : 18.18 mm :  12.3 kp");
+delay(5000);   
+Serial.println("No.   5 :  5.56 mm : 18.19 mm :  12.2 kp");
+delay(5000); 
+Serial.println("No.   6 :  5.56 mm : 18.13 mm :  12.6 kp");
+delay(5000); 
+Serial.println("No.   7 :  5.58 mm : 18.11 mm :  12.1 kp");
+delay(5000); 
+Serial.println("No.   8 :  5.58 mm : 18.11 mm :  12.8 kp");
+delay(5000); 
+Serial.println("No.   9 :  5.54 mm : 18.13 mm :  12.1 kp");
+delay(5000); 
+Serial.println("No.  10 :  5.58 mm : 18.19 mm :  12.9 kp");
+
+  // Tunggu beberapa waktu sebelum mengirim ulang data
+  // Delay 10 detik sebelum mengulangi pengiriman
+}
